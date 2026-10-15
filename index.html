@@ -8,7 +8,7 @@
 <meta property="og:image" content="assets/img/miga-de-oro.webp">
 <title>Frescore Gourmet</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Frescore Gourmet: estaciones gastronómicas en vivo para bodas, galas y eventos corporativos en República Dominicana.">
+<meta name="description" content="Frescore Gourmet: estaciones gastronómicas en vivo para eventos corporativos, fiestas y eventos multitudinarios en República Dominicana.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap">
@@ -79,7 +79,7 @@ p{margin:0}
 .nav .wrap{display:flex;align-items:center;gap:28px;min-height:76px}
 .nav.is-solid{background:rgba(20,17,14,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .nav.is-hidden{transform:translateY(-110%)}
-.logo{text-decoration:none;line-height:1}
+.logo{text-decoration:none;line-height:1;padding-block:4px}
 .logo b{display:block;font:400 2rem/1 var(--f-script);color:var(--ivory)}
 .logo small{display:block;font:500 .56rem/1 var(--f-body);letter-spacing:.55em;color:var(--sage);margin-top:2px;padding-left:3px}
 .nav nav{margin-left:auto;display:flex;gap:30px}
@@ -94,7 +94,8 @@ p{margin:0}
 .pill.solid{background:var(--brass);color:var(--night)}
 .pill.solid::before{background:var(--ivory)}
 .nav .pill{min-height:42px;padding:0 20px;font-size:.86rem}
-@media (max-width:880px){.nav nav{display:none}.nav .pill{margin-left:auto}}
+@media (max-width:880px){.nav nav{display:none}.nav .pill{margin-left:auto;white-space:nowrap}}
+@media (max-width:380px){.nav .pill{padding:0 12px;font-size:.8rem}.logo b{font-size:1.7rem}}
 
 /* ---------- Hero: el portal ---------- */
 .hero{position:relative}
@@ -110,8 +111,9 @@ p{margin:0}
 .portal .slats{position:absolute;left:0;right:0;bottom:0;z-index:2;--h:40px;opacity:0}
 .portal video{width:100%;height:100%;object-fit:cover}
 .portal::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,transparent 55%,rgba(20,17,14,.45))}
-.hero-sub{position:absolute;z-index:3;left:5vw;bottom:7%;max-width:21rem;font-size:1rem;color:var(--sage)}
+.hero-sub{position:absolute;z-index:3;left:5vw;bottom:7%;max-width:19rem;font-size:1rem;color:var(--sage)}
 .hero-sub strong{display:block;font-weight:400;color:var(--ivory);margin-bottom:4px}
+.hero-sub .pill{margin-top:18px}
 .scroll-hint{position:absolute;z-index:3;right:5vw;bottom:7%;display:flex;align-items:center;gap:12px;font-size:.85rem;color:var(--sage)}
 .scroll-hint i{display:block;width:1px;height:46px;background:linear-gradient(var(--brass),transparent);animation:drip 2.2s var(--ease) infinite}
 @keyframes drip{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
@@ -120,7 +122,12 @@ p{margin:0}
   .hero-title .l1{left:22px;top:15%}
   .hero-title .l2{right:22px;bottom:24%}
   .portal{width:58vw;height:58vw}
-  .hero-sub{left:22px;right:22px;bottom:6%;max-width:none}
+  .hero-sub{left:22px;right:22px;bottom:5%;max-width:none}
+  .hero-pin{min-height:0}
+  .hero-sub .sub-rest{display:none}
+  .hero-sub .pill{margin-top:12px;width:100%}
+  .hero-title .l2{bottom:calc(5% + 108px)}
+  .hero-title .l1{top:13%}
   .scroll-hint{display:none}
 }
 
@@ -276,8 +283,9 @@ legend{font-size:.84rem;color:var(--brass);margin-bottom:12px}
 
 /* ---------- Footer ---------- */
 footer{padding-block:0 34px;overflow:hidden}
+@media (max-width:880px){footer{padding-bottom:96px}}
 footer .slats{margin-bottom:80px}
-.foot-word{font:400 clamp(6rem,24vw,22rem)/.8 var(--f-script);color:var(--ivory);text-align:center;letter-spacing:-.01em}
+.foot-word{font:400 clamp(3.6rem,21vw,22rem)/.8 var(--f-script);color:var(--ivory);text-align:center;letter-spacing:-.01em}
 .foot-word span{display:block;font:500 clamp(.7rem,1.2vw,1rem)/1 var(--f-body);letter-spacing:1.1em;color:var(--brass);margin-top:10px;padding-left:1.1em}
 .foot-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;margin-top:70px;font-size:.86rem;color:var(--sage)}
 
@@ -409,7 +417,7 @@ form{display:block}
         </video>
         <div class="slats" id="plinth" aria-hidden="true"></div>
       </div>
-      <div class="hero-sub" id="hero-sub"><p><strong>Estaciones gastronómicas en vivo</strong>para bodas, galas y eventos corporativos en todo el país.</p><a class="pill solid" href="#reservar" style="margin-top:18px">Planifica tu evento</a></div>
+      <div class="hero-sub" id="hero-sub"><p><strong>Estaciones gastronómicas en vivo</strong><span class="sub-rest">para eventos corporativos, fiestas y eventos de cientos o miles de personas.</span></p><a class="pill solid" href="#reservar">Planifica tu evento</a></div>
       <div class="scroll-hint" id="hint"><i></i>Desliza para entrar al salón</div>
       <div class="slats" aria-hidden="true"></div>
     </div>
@@ -418,10 +426,10 @@ form{display:block}
   <section class="manifesto" aria-label="Concepto">
     <div class="wrap">
       <p class="eyebrow">Una experiencia para vivirla</p>
-      <p id="manifesto">Convierte tu celebración en un recorrido gastronómico. Cada invitado descubre, combina y disfruta sus sabores favoritos, <em>y la comida se vuelve uno de los grandes momentos de la noche.</em></p>
+      <p id="manifesto">Convierte tu evento en un recorrido gastronómico. Cada invitado elige, combina y disfruta sus sabores favoritos sin filas eternas, <em>y la comida se vuelve uno de los grandes atractivos del evento.</em></p>
       <div class="facts">
         <div><strong data-count="11">11</strong><span>estaciones temáticas</span></div>
-        <div><strong data-count="200">200</strong><span>invitados desde, por estación</span></div>
+        <div><strong data-count="200">200+</strong><span>personas por estación, y se suman las que necesites</span></div>
         <div><strong>En vivo</strong><span>cocina, coctelería y barista</span></div>
       </div>
     </div>
@@ -430,14 +438,14 @@ form{display:block}
   <section class="types" id="eventos" aria-labelledby="types-t">
     <div class="wrap">
       <div class="gallery-head">
-        <div><p class="eyebrow">¿Qué celebras?</p><h2 id="types-t">Una experiencia para cada evento</h2></div>
-        <p>Desde 200 invitados por estación hasta <span class="pending-inline" title="Dato pendiente del cliente">el máximo que nos confirmes</span>. Elige tu tipo de evento y empezamos por ahí.</p>
+        <div><p class="eyebrow">¿Qué evento tienes?</p><h2 id="types-t">Hecho para eventos grandes</h2></div>
+        <p>Cada estación sirve desde 200 personas y se suman las que tu evento necesite, hasta <span class="pending-inline" title="Dato pendiente del cliente">el máximo que nos confirmes</span>. Elige tu tipo de evento y empezamos por ahí.</p>
       </div>
       <div class="types-grid">
-        <button class="type" type="button" data-type="Boda" data-cursor=""><img src="assets/img/invitados.webp" alt="" loading="lazy"><div><h3>Bodas</h3><p>Un recorrido de sabores para tus invitados, del cóctel hasta el final de la fiesta.</p><span class="card-cta">Planifica tu boda</span></div></button>
-        <button class="type" type="button" data-type="Evento corporativo" data-cursor=""><img src="assets/img/salon.webp" alt="" loading="lazy"><div><h3>Corporativos</h3><p>Lanzamientos, convenciones y cenas de empresa con servicio ágil y presentación impecable.</p><span class="card-cta">Planifica tu evento corporativo</span></div></button>
-        <button class="type" type="button" data-type="Gala o aniversario" data-cursor=""><img src="assets/img/aroma-y-cacao.webp" alt="" loading="lazy" style="object-position:62% 50%"><div><h3>Galas y aniversarios</h3><p>Estaciones con show en vivo para noches de etiqueta.</p><span class="card-cta">Planifica tu gala</span></div></button>
-        <button class="type" type="button" data-type="Fiesta de fin de año" data-cursor=""><img src="assets/img/miga-de-oro.webp" alt="" loading="lazy" style="object-position:40% 50%"><div><h3>Fin de año</h3><p>Menú especial de temporada y estaciones para celebrar con tu equipo o tu familia.</p><span class="card-cta">Planifica tu fiesta</span></div></button>
+        <button class="type" type="button" data-type="Evento corporativo" data-cursor=""><img src="assets/img/miga-de-oro.webp" alt="" loading="lazy" style="object-position:40% 50%"><div><h3>Corporativos</h3><p>Convenciones, lanzamientos, ferias y aniversarios de empresa, con servicio ágil para tu personal y tus clientes.</p><span class="card-cta">Planifica tu evento corporativo</span></div></button>
+        <button class="type" type="button" data-type="Evento multitudinario" data-cursor=""><img src="assets/img/salon.webp" alt="" loading="lazy"><div><h3>Multitudinarios</h3><p>Festivales, conciertos, activaciones de marca y eventos masivos. Varias estaciones a la vez para servir a cientos de personas sin filas.</p><span class="card-cta">Planifica tu evento masivo</span></div></button>
+        <button class="type" type="button" data-type="Fiesta privada" data-cursor=""><img src="assets/img/oasis-tropical.webp" alt="" loading="lazy"><div><h3>Fiestas</h3><p>Cumpleaños, graduaciones, quinceañeros y fiestas privadas con estaciones que se vuelven parte del ambiente.</p><span class="card-cta">Planifica tu fiesta</span></div></button>
+        <button class="type" type="button" data-type="Fiesta de fin de año" data-cursor=""><img src="assets/img/aroma-y-cacao.webp" alt="" loading="lazy" style="object-position:62% 50%"><div><h3>Fin de año</h3><p>La fiesta de la empresa con menú especial de temporada, coctelería y estación dulce.</p><span class="card-cta">Planifica tu fiesta de fin de año</span></div></button>
       </div>
     </div>
   </section>
@@ -464,10 +472,10 @@ form{display:block}
         <p>Tres estaciones que funcionan bien juntas. Agrega la combinación a tu cotización y ajústala a tu gusto.</p>
       </div>
       <div class="combo-grid">
-        <article class="combo"><span class="for">Para bodas</span><h3>Boda clásica</h3><ul><li>Flavor from Italy</li><li>Asia</li><li>Aroma y Cacao</li></ul><button class="pill" type="button" data-combo="italia,asia,aroma">Agregar combinación</button></article>
-        <article class="combo"><span class="for">Para empresas</span><h3>Corporativo ágil</h3><ul><li>La Miga de Oro</li><li>Crunchy &amp; Fit</li><li>Aroma y Cacao</li></ul><button class="pill" type="button" data-combo="miga,fit,aroma">Agregar combinación</button></article>
-        <article class="combo"><span class="for">Al aire libre</span><h3>Noche tropical</h3><ul><li>Barbacoa Express</li><li>México Lindo</li><li>Oasis Tropical</li></ul><button class="pill" type="button" data-combo="barbacoa,mexico,oasis">Agregar combinación</button></article>
-        <article class="combo"><span class="for">Temporada</span><h3>Cena de fin de año</h3><ul><li>Menú Especial</li><li>Oasis Tropical</li><li>Aroma y Cacao</li></ul><button class="pill" type="button" data-combo="especial,oasis,aroma">Agregar combinación</button></article>
+        <article class="combo"><span class="for">Empresas</span><h3>Corporativo ágil</h3><ul><li>La Miga de Oro</li><li>Crunchy &amp; Fit</li><li>Aroma y Cacao</li></ul><button class="pill" type="button" data-combo="miga,fit,aroma">Agregar combinación</button></article>
+        <article class="combo"><span class="for">Eventos masivos</span><h3>Alto volumen</h3><ul><li>Pizza</li><li>Barbacoa Express</li><li>Oasis Tropical</li></ul><button class="pill" type="button" data-combo="pizza,barbacoa,oasis">Agregar combinación</button></article>
+        <article class="combo"><span class="for">Fiestas</span><h3>Fiesta tropical</h3><ul><li>Barbacoa Express</li><li>México Lindo</li><li>Oasis Tropical</li></ul><button class="pill" type="button" data-combo="barbacoa,mexico,oasis">Agregar combinación</button></article>
+        <article class="combo"><span class="for">Temporada</span><h3>Fin de año de empresa</h3><ul><li>Menú Especial</li><li>Oasis Tropical</li><li>Aroma y Cacao</li></ul><button class="pill" type="button" data-combo="especial,oasis,aroma">Agregar combinación</button></article>
       </div>
     </div>
   </section>
@@ -487,7 +495,7 @@ form{display:block}
       </div>
       <div class="cols">
         <div class="col" data-speed="-6">
-          <figure class="ph"><img src="assets/img/salon.webp" alt="Pasillo de estaciones Frescore en un salón de gala" loading="lazy"><figcaption>El pasillo de estaciones</figcaption></figure>
+          <figure class="ph"><img src="assets/img/salon.webp" alt="Pasillo de estaciones Frescore en un salón de eventos" loading="lazy"><figcaption>El pasillo de estaciones</figcaption></figure>
           <figure class="ph wide"><img src="assets/img/aroma-y-cacao.webp" alt="Estación Aroma y Cacao con churros y fuentes de chocolate" loading="lazy"><figcaption>Aroma y Cacao</figcaption></figure>
         </div>
         <div class="col" data-speed="8">
@@ -496,7 +504,7 @@ form{display:block}
         </div>
         <div class="col" data-speed="-10">
           <figure class="ph wide"><img src="assets/img/oasis-tropical.webp" alt="Estación Oasis Tropical con cocos de agua" loading="lazy"><figcaption>Oasis Tropical</figcaption></figure>
-          <figure class="ph"><img src="assets/img/invitados.webp" alt="Invitados de gala recorriendo las estaciones" loading="lazy"><figcaption>Tus invitados, eligiendo</figcaption></figure>
+          <figure class="ph"><img src="assets/img/invitados.webp" alt="Invitados recorriendo las estaciones" loading="lazy"><figcaption>Tus invitados, eligiendo</figcaption></figure>
         </div>
       </div>
     </div>
@@ -521,9 +529,9 @@ form{display:block}
         </div>
       </div>
       <div class="projects">
-        <article class="project"><div class="ph-box">Foto real del evento</div><small>Boda · 2026</small><h3>Nombre del evento</h3><p>Lugar, número de invitados y estaciones que se usaron.</p></article>
         <article class="project"><div class="ph-box">Foto real del evento</div><small>Corporativo · 2026</small><h3>Nombre del evento</h3><p>Lugar, número de invitados y estaciones que se usaron.</p></article>
-        <article class="project"><div class="ph-box">Foto real del evento</div><small>Gala · 2026</small><h3>Nombre del evento</h3><p>Lugar, número de invitados y estaciones que se usaron.</p></article>
+        <article class="project"><div class="ph-box">Foto real del evento</div><small>Evento masivo · 2026</small><h3>Nombre del evento</h3><p>Lugar, número de invitados y estaciones que se usaron.</p></article>
+        <article class="project"><div class="ph-box">Foto real del evento</div><small>Fiesta · 2026</small><h3>Nombre del evento</h3><p>Lugar, número de invitados y estaciones que se usaron.</p></article>
       </div>
     </div>
   </section>
@@ -569,7 +577,7 @@ form{display:block}
         <fieldset class="pane" data-pane="1">
           <legend>Cuéntanos de tu evento</legend>
           <div class="grid2">
-            <div class="fl fixed"><select id="f-type" name="tipo"><option>Boda</option><option>Evento corporativo</option><option>Gala o aniversario</option><option>Quinceañero o cumpleaños</option><option>Fiesta de fin de año</option><option>Otro</option></select><label for="f-type">Tipo de evento</label></div>
+            <div class="fl fixed"><select id="f-type" name="tipo"><option>Evento corporativo</option><option>Evento multitudinario</option><option>Fiesta privada</option><option>Fiesta de fin de año</option><option>Boda</option><option>Otro</option></select><label for="f-type">Tipo de evento</label></div>
             <div class="fl fixed"><input id="f-date" name="fecha" type="date"><label for="f-date">Fecha del evento</label></div>
             <div class="fl"><input id="f-guests" name="invitados" type="number" min="200" step="10" placeholder=" " required><label for="f-guests">Invitados (desde 200)</label></div>
             <div class="fl"><input id="f-place" name="lugar" placeholder=" "><label for="f-place">Lugar o ciudad</label></div>
