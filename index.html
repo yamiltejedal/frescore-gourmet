@@ -281,6 +281,95 @@ footer .slats{margin-bottom:80px}
 .foot-word span{display:block;font:500 clamp(.7rem,1.2vw,1rem)/1 var(--f-body);letter-spacing:1.1em;color:var(--brass);margin-top:10px;padding-left:1.1em}
 .foot-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;margin-top:70px;font-size:.86rem;color:var(--sage)}
 
+/* ---------- Contador de cotización ---------- */
+.n{display:inline-grid;place-items:center;min-width:22px;height:22px;margin-left:8px;padding:0 6px;border-radius:11px;background:var(--night);color:var(--ember);font:500 .75rem/1 var(--f-body);font-variant-numeric:tabular-nums}
+.n:empty{display:none}
+.card.in-cart::before{content:"✓ En tu cotización";position:absolute;z-index:3;left:50%;bottom:22px;transform:translateX(-50%);padding:7px 14px;border-radius:999px;background:var(--ember);color:var(--night);font:500 .78rem/1 var(--f-body);white-space:nowrap}
+.card.in-cart{border-color:var(--ember);box-shadow:0 0 0 1px var(--ember),0 0 40px rgba(240,180,106,.25)}
+.card.in-cart .card-txt{opacity:.25}
+.card:nth-child(odd).in-cart::before{bottom:auto;top:46%}
+
+/* ---------- Botón flotante ---------- */
+.fab{position:fixed;z-index:65;right:max(18px,env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));display:flex;gap:10px;align-items:center;transform:translateY(140%);opacity:0;transition:transform .6s var(--ease),opacity .4s;pointer-events:none}
+.fab.show{transform:none;opacity:1;pointer-events:auto}
+.fab .pill{box-shadow:0 10px 30px rgba(0,0,0,.45)}
+.fab .wa{display:grid;place-items:center;width:50px;height:50px;border-radius:50%;background:var(--night-2);border:1px solid var(--brass);color:var(--ivory);box-shadow:0 10px 30px rgba(0,0,0,.45);transition:background .3s}
+.fab .wa:hover{background:var(--brass);color:var(--night)}
+.fab .wa svg{width:22px;height:22px}
+@media (max-width:880px){.fab{left:max(14px,env(safe-area-inset-left,0px));right:max(14px,env(safe-area-inset-right,0px))}.fab .pill{flex:1}}
+
+/* ---------- Tipos de evento ---------- */
+.types{padding-block:20px 120px}
+.types-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.type{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:440px;padding:0;border:1px solid var(--line);border-radius:200px 200px 10px 10px;overflow:hidden;background:var(--night-2);color:inherit;font:inherit;text-align:left;cursor:pointer}
+.type img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.type::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,14,0) 30%,rgba(20,17,14,.94) 78%)}
+.type:hover img{transform:scale(1.06)}
+.type > div{position:relative;z-index:2;padding:24px}
+.type h3{font-size:2rem}
+.type p{margin-top:8px;font-size:.95rem;color:var(--sage)}
+.type .card-cta{display:inline-block;margin-top:14px}
+.pending-inline{border-bottom:1px dashed var(--ember);color:var(--ember)}
+@media (max-width:1020px){.types-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.types-grid{grid-template-columns:minmax(0,1fr)}.type{min-height:360px}}
+
+/* ---------- Combinaciones ---------- */
+.combos{padding-block:50px 110px}
+.combos-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px;margin-bottom:30px}
+.combos-head h2{font-size:clamp(2.2rem,4vw,3.4rem)}
+.combos-head p{max-width:26rem;color:var(--sage)}
+.combo-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.combo{display:flex;flex-direction:column;gap:12px;padding:26px;border:1px solid var(--line);background:linear-gradient(180deg,var(--night-2),var(--night));transition:border-color .4s,box-shadow .4s}
+.combo:hover{border-color:var(--brass)}
+.combo.used{border-color:var(--ember);box-shadow:0 0 30px rgba(240,180,106,.18)}
+.combo h3{font-size:1.9rem}
+.combo .for{font:400 1.35rem/1 var(--f-script);color:var(--brass)}
+.combo ul{list-style:none;margin:0;padding:0;display:grid;gap:4px;flex:1}
+.combo li{font-size:.95rem;color:var(--ivory);padding-left:16px;position:relative}
+.combo li::before{content:"";position:absolute;left:0;top:.7em;width:7px;height:1px;background:var(--brass)}
+.combo .pill{align-self:flex-start;min-height:42px;font-size:.86rem}
+@media (max-width:1020px){.combo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.combo-grid{grid-template-columns:minmax(0,1fr)}}
+
+/* ---------- Confianza (pendiente de datos del cliente) ---------- */
+.proof{padding-block:20px 120px}
+.pending{position:relative;outline:1px dashed rgba(240,180,106,.55);outline-offset:6px}
+.tag-pending{display:inline-block;padding:5px 10px;border:1px dashed var(--ember);border-radius:999px;font:500 .72rem/1 var(--f-body);letter-spacing:.06em;color:var(--ember)}
+.nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-block:1px solid var(--line)}
+.nums div{padding:30px 22px}
+.nums div + div{border-left:1px solid var(--line)}
+.nums strong{display:block;font:400 clamp(2.6rem,4.4vw,3.8rem)/1 var(--f-display);color:var(--ivory);font-variant-numeric:tabular-nums}
+.nums span{font-size:.95rem;color:var(--sage)}
+.venues{margin-top:70px;display:grid;gap:18px}
+.venues > p{font:400 1.7rem/1 var(--f-script);color:var(--brass)}
+.venue-row{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.venue-row span{display:grid;place-items:center;min-height:84px;padding:10px;border:1px dashed rgba(201,164,106,.35);font-size:.82rem;color:var(--sage);text-align:center}
+.projects{margin-top:70px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.project{display:flex;flex-direction:column;gap:8px}
+.project .ph-box{aspect-ratio:4/3;max-width:100%;display:grid;place-items:center;border:1px dashed rgba(201,164,106,.35);background:repeating-linear-gradient(135deg,rgba(201,164,106,.05) 0 10px,transparent 10px 20px);color:var(--sage);font-size:.85rem;text-align:center;padding:16px}
+.project small{color:var(--brass);font-size:.82rem}
+.project h3{font-size:1.6rem}
+.project p{font-size:.92rem;color:var(--sage)}
+@media (max-width:880px){.nums{grid-template-columns:repeat(2,minmax(0,1fr))}.nums div:nth-child(3){border-left:0}.nums div:nth-child(n+3){border-top:1px solid var(--line)}.venue-row{grid-template-columns:repeat(3,minmax(0,1fr))}.projects{grid-template-columns:minmax(0,1fr)}}
+
+/* ---------- Formulario por pasos ---------- */
+.fsteps{list-style:none;margin:0 0 34px;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.fsteps li{display:flex;align-items:center;gap:10px;padding-top:12px;border-top:2px solid var(--moss);font-size:.9rem;color:var(--sage);transition:border-color .5s,color .5s}
+.fsteps li b{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;border:1px solid currentColor;font:500 .75rem/1 var(--f-body)}
+.fsteps li.on{border-color:var(--ember);color:var(--ivory)}
+.fsteps li.past{border-color:var(--brass);color:var(--brass)}
+.pane{display:block}
+.pane[hidden]{display:none!important}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 26px}
+.grid2 .full{grid-column:1/-1}
+.pane-nav{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;margin-top:34px}
+.pane-nav p{flex:1 1 200px;font-size:.86rem;color:var(--sage)}
+.pane legend{display:flex;align-items:center;font:400 1.6rem/1.1 var(--f-display);color:var(--ivory);margin-bottom:16px}
+.pane legend .n{background:var(--ember);color:var(--night)}
+.pane .hint{margin:-6px 0 16px;font-size:.9rem;color:var(--sage)}
+form{display:block}
+@media (max-width:880px){.grid2{grid-template-columns:minmax(0,1fr)}.fsteps li{font-size:.8rem}}
+
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.js .loader{display:none}}
 </style>
 
@@ -302,7 +391,7 @@ footer .slats{margin-bottom:80px}
       <a href="#proceso">Cómo funciona</a>
       <a href="#reservar">Reservaciones</a>
     </nav>
-    <a class="pill solid" href="#reservar">Cotizar mi evento</a>
+    <a class="pill solid" href="#reservar">Planifica tu evento<span class="n" id="cart-nav" aria-label="estaciones en tu cotización"></span></a>
   </div>
 </header>
 
@@ -320,7 +409,7 @@ footer .slats{margin-bottom:80px}
         </video>
         <div class="slats" id="plinth" aria-hidden="true"></div>
       </div>
-      <p class="hero-sub" id="hero-sub"><strong>Estaciones gastronómicas en vivo</strong>para bodas, galas y eventos corporativos en todo el país.</p>
+      <div class="hero-sub" id="hero-sub"><p><strong>Estaciones gastronómicas en vivo</strong>para bodas, galas y eventos corporativos en todo el país.</p><a class="pill solid" href="#reservar" style="margin-top:18px">Planifica tu evento</a></div>
       <div class="scroll-hint" id="hint"><i></i>Desliza para entrar al salón</div>
       <div class="slats" aria-hidden="true"></div>
     </div>
@@ -332,8 +421,23 @@ footer .slats{margin-bottom:80px}
       <p id="manifesto">Convierte tu celebración en un recorrido gastronómico. Cada invitado descubre, combina y disfruta sus sabores favoritos, <em>y la comida se vuelve uno de los grandes momentos de la noche.</em></p>
       <div class="facts">
         <div><strong data-count="11">11</strong><span>estaciones temáticas</span></div>
-        <div><strong data-count="200">200</strong><span>invitados mínimo por estación</span></div>
+        <div><strong data-count="200">200</strong><span>invitados desde, por estación</span></div>
         <div><strong>En vivo</strong><span>cocina, coctelería y barista</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="types" id="eventos" aria-labelledby="types-t">
+    <div class="wrap">
+      <div class="gallery-head">
+        <div><p class="eyebrow">¿Qué celebras?</p><h2 id="types-t">Una experiencia para cada evento</h2></div>
+        <p>Desde 200 invitados por estación hasta <span class="pending-inline" title="Dato pendiente del cliente">el máximo que nos confirmes</span>. Elige tu tipo de evento y empezamos por ahí.</p>
+      </div>
+      <div class="types-grid">
+        <button class="type" type="button" data-type="Boda" data-cursor=""><img src="assets/img/invitados.webp" alt="" loading="lazy"><div><h3>Bodas</h3><p>Un recorrido de sabores para tus invitados, del cóctel hasta el final de la fiesta.</p><span class="card-cta">Planifica tu boda</span></div></button>
+        <button class="type" type="button" data-type="Evento corporativo" data-cursor=""><img src="assets/img/salon.webp" alt="" loading="lazy"><div><h3>Corporativos</h3><p>Lanzamientos, convenciones y cenas de empresa con servicio ágil y presentación impecable.</p><span class="card-cta">Planifica tu evento corporativo</span></div></button>
+        <button class="type" type="button" data-type="Gala o aniversario" data-cursor=""><img src="assets/img/aroma-y-cacao.webp" alt="" loading="lazy" style="object-position:62% 50%"><div><h3>Galas y aniversarios</h3><p>Estaciones con show en vivo para noches de etiqueta.</p><span class="card-cta">Planifica tu gala</span></div></button>
+        <button class="type" type="button" data-type="Fiesta de fin de año" data-cursor=""><img src="assets/img/miga-de-oro.webp" alt="" loading="lazy" style="object-position:40% 50%"><div><h3>Fin de año</h3><p>Menú especial de temporada y estaciones para celebrar con tu equipo o tu familia.</p><span class="card-cta">Planifica tu fiesta</span></div></button>
       </div>
     </div>
   </section>
@@ -351,6 +455,21 @@ footer .slats{margin-bottom:80px}
       <div class="hs-track" id="hs-track"></div>
     </div>
     <div class="wrap"><div class="hs-bar"><span id="hs-bar"></span></div></div>
+  </section>
+
+  <section class="combos" aria-labelledby="combos-t">
+    <div class="wrap">
+      <div class="combos-head">
+        <div><p class="eyebrow">¿No sabes por dónde empezar?</p><h2 id="combos-t">Combinaciones sugeridas</h2></div>
+        <p>Tres estaciones que funcionan bien juntas. Agrega la combinación a tu cotización y ajústala a tu gusto.</p>
+      </div>
+      <div class="combo-grid">
+        <article class="combo"><span class="for">Para bodas</span><h3>Boda clásica</h3><ul><li>Flavor from Italy</li><li>Asia</li><li>Aroma y Cacao</li></ul><button class="pill" type="button" data-combo="italia,asia,aroma">Agregar combinación</button></article>
+        <article class="combo"><span class="for">Para empresas</span><h3>Corporativo ágil</h3><ul><li>La Miga de Oro</li><li>Crunchy &amp; Fit</li><li>Aroma y Cacao</li></ul><button class="pill" type="button" data-combo="miga,fit,aroma">Agregar combinación</button></article>
+        <article class="combo"><span class="for">Al aire libre</span><h3>Noche tropical</h3><ul><li>Barbacoa Express</li><li>México Lindo</li><li>Oasis Tropical</li></ul><button class="pill" type="button" data-combo="barbacoa,mexico,oasis">Agregar combinación</button></article>
+        <article class="combo"><span class="for">Temporada</span><h3>Cena de fin de año</h3><ul><li>Menú Especial</li><li>Oasis Tropical</li><li>Aroma y Cacao</li></ul><button class="pill" type="button" data-combo="especial,oasis,aroma">Agregar combinación</button></article>
+      </div>
+    </div>
   </section>
 
   <div class="slats" style="--h:18px" aria-hidden="true"></div>
@@ -383,6 +502,32 @@ footer .slats{margin-bottom:80px}
     </div>
   </section>
 
+  <section class="proof" aria-labelledby="proof-t">
+    <div class="wrap">
+      <div class="gallery-head">
+        <div><p class="eyebrow">Lo que ya hemos servido</p><h2 id="proof-t">Eventos que hablan por nosotros</h2></div>
+        <p><span class="tag-pending">Pendiente: datos reales del cliente</span><br>Las cifras, los salones y los eventos de esta sección se completan con información real de Frescore.</p>
+      </div>
+      <div class="nums pending">
+        <div><strong>—</strong><span>eventos montados</span></div>
+        <div><strong>—</strong><span>invitados servidos</span></div>
+        <div><strong>—</strong><span>churros rellenados</span></div>
+        <div><strong>—</strong><span>ruedas de parmesano abiertas</span></div>
+      </div>
+      <div class="venues">
+        <p>Hemos montado en</p>
+        <div class="venue-row" aria-label="Logos de salones y hoteles, pendientes">
+          <span>Logo salón u hotel</span><span>Logo salón u hotel</span><span>Logo salón u hotel</span><span>Logo salón u hotel</span><span>Logo salón u hotel</span><span>Logo salón u hotel</span>
+        </div>
+      </div>
+      <div class="projects">
+        <article class="project"><div class="ph-box">Foto real del evento</div><small>Boda · 2026</small><h3>Nombre del evento</h3><p>Lugar, número de invitados y estaciones que se usaron.</p></article>
+        <article class="project"><div class="ph-box">Foto real del evento</div><small>Corporativo · 2026</small><h3>Nombre del evento</h3><p>Lugar, número de invitados y estaciones que se usaron.</p></article>
+        <article class="project"><div class="ph-box">Foto real del evento</div><small>Gala · 2026</small><h3>Nombre del evento</h3><p>Lugar, número de invitados y estaciones que se usaron.</p></article>
+      </div>
+    </div>
+  </section>
+
   <section class="process" id="proceso" aria-labelledby="proc-t">
     <div class="wrap process-grid">
       <div>
@@ -410,24 +555,43 @@ footer .slats{margin-bottom:80px}
     <div class="wrap book-grid">
       <div class="book-aside">
         <p class="eyebrow">Reservaciones</p>
-        <h2 id="res-t">Cuéntanos de tu evento</h2>
-        <p>Completa el formulario y te respondemos por WhatsApp con una propuesta a la medida de tu celebración.</p>
+        <h2 id="res-t">Planifica tu evento</h2>
+        <p>Tres pasos y listo. Al final se abre WhatsApp con tu solicitud y te respondemos con una propuesta a la medida.</p>
         <div class="contact">
           <div><small>Teléfono y WhatsApp</small><a href="https://wa.me/18092987334" target="_blank" rel="noopener">809-298-7334</a></div>
           <div><small>Correo</small><a href="mailto:novaliacateringrd@gmail.com">novaliacateringrd@gmail.com</a></div>
         </div>
       </div>
       <form id="quote" novalidate>
-        <div class="fl"><input id="f-name" name="nombre" placeholder=" " autocomplete="name" required><label for="f-name">Nombre</label></div>
-        <div class="fl"><input id="f-phone" name="telefono" type="tel" inputmode="tel" placeholder=" " autocomplete="tel" required><label for="f-phone">Teléfono</label></div>
-        <div class="fl fixed"><select id="f-type" name="tipo"><option>Boda</option><option>Evento corporativo</option><option>Gala o aniversario</option><option>Quinceañero o cumpleaños</option><option>Fiesta de fin de año</option><option>Otro</option></select><label for="f-type">Tipo de evento</label></div>
-        <div class="fl fixed"><input id="f-date" name="fecha" type="date"><label for="f-date">Fecha del evento</label></div>
-        <div class="fl"><input id="f-guests" name="invitados" type="number" min="200" step="10" placeholder=" " required><label for="f-guests">Invitados (desde 200)</label></div>
-        <div class="fl"><input id="f-place" name="lugar" placeholder=" "><label for="f-place">Lugar o ciudad</label></div>
-        <fieldset><legend>Estaciones que te interesan</legend><div class="chips" id="f-stations"></div></fieldset>
-        <div class="fl full"><textarea id="f-msg" name="mensaje" placeholder=" "></textarea><label for="f-msg">Detalles: horario, estilo, restricciones alimentarias</label></div>
-        <input class="hp" id="f-web" name="web" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <div class="form-foot"><p>Al enviar se abre WhatsApp con tu solicitud lista.</p><button class="pill solid" type="submit">Enviar solicitud</button></div>
+        <ol class="fsteps" id="fsteps" aria-label="Pasos de la solicitud">
+          <li class="on"><b>1</b>Tu evento</li><li><b>2</b>Estaciones</li><li><b>3</b>Contacto</li>
+        </ol>
+        <fieldset class="pane" data-pane="1">
+          <legend>Cuéntanos de tu evento</legend>
+          <div class="grid2">
+            <div class="fl fixed"><select id="f-type" name="tipo"><option>Boda</option><option>Evento corporativo</option><option>Gala o aniversario</option><option>Quinceañero o cumpleaños</option><option>Fiesta de fin de año</option><option>Otro</option></select><label for="f-type">Tipo de evento</label></div>
+            <div class="fl fixed"><input id="f-date" name="fecha" type="date"><label for="f-date">Fecha del evento</label></div>
+            <div class="fl"><input id="f-guests" name="invitados" type="number" min="200" step="10" placeholder=" " required><label for="f-guests">Invitados (desde 200)</label></div>
+            <div class="fl"><input id="f-place" name="lugar" placeholder=" "><label for="f-place">Lugar o ciudad</label></div>
+          </div>
+          <div class="pane-nav"><p>Paso 1 de 3</p><button class="pill solid" type="button" data-next>Continuar</button></div>
+        </fieldset>
+        <fieldset class="pane" data-pane="2" hidden>
+          <legend>Elige tus estaciones<span class="n" id="cart-form"></span></legend>
+          <p class="hint">Las que agregaste mientras recorrías el sitio ya están marcadas.</p>
+          <div class="chips" id="f-stations"></div>
+          <div class="pane-nav"><button class="pill" type="button" data-prev>Atrás</button><button class="pill solid" type="button" data-next>Continuar</button></div>
+        </fieldset>
+        <fieldset class="pane" data-pane="3" hidden>
+          <legend>¿Cómo te contactamos?</legend>
+          <div class="grid2">
+            <div class="fl"><input id="f-name" name="nombre" placeholder=" " autocomplete="name" required><label for="f-name">Nombre</label></div>
+            <div class="fl"><input id="f-phone" name="telefono" type="tel" inputmode="tel" placeholder=" " autocomplete="tel" required><label for="f-phone">Teléfono</label></div>
+            <div class="fl full"><textarea id="f-msg" name="mensaje" placeholder=" "></textarea><label for="f-msg">Detalles: horario, estilo, restricciones alimentarias</label></div>
+          </div>
+          <input class="hp" id="f-web" name="web" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="pane-nav"><button class="pill" type="button" data-prev>Atrás</button><button class="pill solid" type="submit">Enviar por WhatsApp</button></div>
+        </fieldset>
         <p class="err" id="f-err" role="alert" hidden></p>
         <div class="done" id="f-done" hidden><h3>Tu solicitud está lista</h3><p>Ábrela en WhatsApp y envíala. Te respondemos con tu propuesta.</p><a class="pill solid" id="f-wa" href="https://wa.me/18092987334" target="_blank" rel="noopener">Abrir WhatsApp</a></div>
       </form>
@@ -442,6 +606,11 @@ footer .slats{margin-bottom:80px}
     <div class="foot-row"><span>Estaciones gastronómicas para eventos · República Dominicana</span><span>© <span id="yr">2026</span> Frescore Gourmet</span></div>
   </div>
 </footer>
+
+<div class="fab" id="fab">
+  <a class="pill solid" href="#reservar">Planifica tu evento<span class="n" id="cart-fab"></span></a>
+  <a class="wa" href="https://wa.me/18092987334" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg></a>
+</div>
 
 <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" hidden>
   <button class="sheet-close" id="sheet-close" type="button" aria-label="Cerrar menú">✕</button>
@@ -540,10 +709,11 @@ function fillSheet(i) {
   sBody.innerHTML = `<p class="hs-count">${pad(i + 1)} / ${STATIONS.length}</p>
     <h2 id="sheet-title">${s.name}</h2><p class="tag">${s.tag}</p><p class="desc">${s.desc}</p>
     <div class="sheet-menu">${menu}</div>
-    <div class="sheet-actions"><button class="pill solid" type="button" data-add="${s.id}">Agregar a mi cotización</button></div>
+    <div class="sheet-actions"><button class="pill solid" type="button" data-add="${s.id}" aria-pressed="false">Agregar a mi cotización</button><a class="pill" href="#reservar" data-close>Planifica tu evento</a></div>
     <div class="sheet-nav"><button type="button" data-step="-1">Estación anterior</button><button type="button" data-step="1">Siguiente estación</button></div>`;
   sBody.scrollTop = 0;
   current = i;
+  syncCart();
 }
 
 function openSheet(i, card) {
@@ -562,10 +732,11 @@ function openSheet(i, card) {
   $("#sheet-close").focus();
 }
 
-function closeSheet() {
+function closeSheet(after) {
   const done = () => {
     sheet.hidden = true; document.documentElement.style.overflow = "";
     lenis && lenis.start(); lastCard && lastCard.focus({preventScroll:true});
+    if (typeof after === "function") after();
   };
   if (motionOK && lastCard) {
     const r = lastCard.getBoundingClientRect(), W = innerWidth, H = innerHeight;
@@ -587,18 +758,20 @@ function stepSheet(d) {
 track.addEventListener("click", e => {
   const c = e.target.closest(".card"); if (c) openSheet(+c.dataset.i, c);
 });
-$("#sheet-close").addEventListener("click", closeSheet);
+$("#sheet-close").addEventListener("click", () => closeSheet());
 sBody.addEventListener("click", e => {
   const add = e.target.closest("[data-add]");
   if (add) {
-    const c = document.getElementById("st-" + add.dataset.add); if (c) c.checked = true;
-    add.textContent = "Agregada a tu cotización";
+    const c = document.getElementById("st-" + add.dataset.add);
+    if (c) { c.checked = !c.checked; syncCart(true); }
   }
+  if (e.target.closest("[data-close]")) { e.preventDefault(); closeSheet(() => goTo("#reservar")); }
   const st = e.target.closest("[data-step]"); if (st) stepSheet(+st.dataset.step);
 });
 document.addEventListener("keydown", e => {
   if (sheet.hidden) return;
   if (e.key === "Escape") closeSheet();
+  if (e.target.closest && e.target.closest("input,textarea,select")) return;
   if (e.key === "ArrowRight") stepSheet(1);
   if (e.key === "ArrowLeft") stepSheet(-1);
   if (e.key === "Tab") { // mantener el foco dentro del menú
@@ -609,23 +782,82 @@ document.addEventListener("keydown", e => {
   }
 });
 
-/* ================= Formulario a WhatsApp ================= */
+/* ================= Cotización: carrito de estaciones ================= */
+function goTo(sel) {
+  const t = typeof sel === "string" ? document.querySelector(sel) : sel;
+  if (!t) return;
+  if (lenis) lenis.scrollTo(t, {offset:-70, duration:1.5});
+  else t.scrollIntoView({behavior: motionOK ? "smooth" : "auto", block:"start"});
+}
+function syncCart(pulse) {
+  const picked = [...chips.querySelectorAll("input:checked")];
+  const n = picked.length ? String(picked.length) : "";
+  ["#cart-nav", "#cart-fab", "#cart-form"].forEach(id => { const el = $(id); if (el) el.textContent = n; });
+  const ids = new Set(picked.map(c => c.id.slice(3)));
+  track.querySelectorAll(".card").forEach(c => c.classList.toggle("in-cart", ids.has(STATIONS[+c.dataset.i].id)));
+  const add = sBody.querySelector("[data-add]");
+  if (add) {
+    const on = ids.has(add.dataset.add);
+    add.textContent = on ? "En tu cotización ✓ (quitar)" : "Agregar a mi cotización";
+    add.setAttribute("aria-pressed", on);
+  }
+  if (pulse && motionOK) gsap.fromTo(["#cart-nav", "#cart-fab"], {scale:1.7}, {scale:1, duration:.7, ease:"elastic.out(1,.4)"});
+}
+chips.addEventListener("change", () => syncCart(true));
+
+/* Tipos de evento: preseleccionan el tipo y llevan al formulario */
+document.querySelectorAll("[data-type]").forEach(b => b.addEventListener("click", () => {
+  $("#f-type").value = b.dataset.type;
+  showStep(1); goTo("#reservar");
+}));
+
+/* Combinaciones sugeridas */
+document.querySelectorAll("[data-combo]").forEach(b => b.addEventListener("click", () => {
+  b.dataset.combo.split(",").forEach(id => { const c = document.getElementById("st-" + id); if (c) c.checked = true; });
+  syncCart(true);
+  b.closest(".combo").classList.add("used");
+  b.textContent = "Agregada a tu cotización ✓";
+}));
+
+/* ================= Formulario por pasos a WhatsApp ================= */
 const form = $("#quote"), err = $("#f-err");
+const panes = [...form.querySelectorAll(".pane")], stepLis = [...$("#fsteps").children];
+let step = 1;
+function showStep(n, dir = 1) {
+  const prev = step; step = n;
+  panes.forEach(p => p.hidden = +p.dataset.pane !== n);
+  stepLis.forEach((li, i) => { li.classList.toggle("on", i + 1 === n); li.classList.toggle("past", i + 1 < n); });
+  err.hidden = true;
+  const pane = panes[n - 1];
+  if (motionOK && prev !== n) gsap.fromTo(pane, {x:40 * dir, opacity:0}, {x:0, opacity:1, duration:.6, ease:"power3.out"});
+  if (prev !== n) { const f = pane.querySelector("input:not(.hp),select,textarea"); f && f.focus({preventScroll:true}); }
+}
+function validate(n) {
+  if (n === 1) {
+    const g = parseInt(form.invitados.value, 10);
+    if (!g || g < 200) return "Indica el número de invitados. Cada estación se sirve desde 200 personas.";
+  }
+  if (n === 2 && !chips.querySelector("input:checked")) return "Elige al menos una estación para preparar tu propuesta.";
+  if (n === 3 && (!form.nombre.value.trim() || !form.telefono.value.trim())) return "Escribe tu nombre y un teléfono para poder contactarte.";
+  return "";
+}
+function fail(msg) {
+  err.textContent = msg; err.hidden = false;
+  if (motionOK) gsap.fromTo(panes[step - 1], {x:-8}, {x:0, duration:.5, ease:"elastic.out(1,.3)"});
+}
+form.addEventListener("click", e => {
+  if (e.target.closest("[data-next]")) { const m = validate(step); m ? fail(m) : showStep(step + 1, 1); }
+  if (e.target.closest("[data-prev]")) showStep(step - 1, -1);
+});
 form.addEventListener("submit", e => {
   e.preventDefault();
+  if (step < 3) { const m = validate(step); m ? fail(m) : showStep(step + 1, 1); return; }
   if (form.web.value) return; // honeypot anti-spam
-  const name = form.nombre.value.trim(), phone = form.telefono.value.trim();
-  const guests = parseInt(form.invitados.value, 10);
+  for (const n of [1, 2, 3]) { const m = validate(n); if (m) { showStep(n); fail(m); return; } }
   const picked = [...chips.querySelectorAll("input:checked")].map(c => c.value);
-  let msg = "";
-  if (!name || !phone) msg = "Escribe tu nombre y un teléfono para poder contactarte.";
-  else if (!guests || guests < 200) msg = "Indica el número de invitados. Cada estación se sirve desde 200 personas.";
-  else if (!picked.length) msg = "Elige al menos una estación para preparar tu propuesta.";
-  err.hidden = !msg; err.textContent = msg;
-  if (msg) return;
-  const text = ["Hola Frescore Gourmet, quiero cotizar estaciones para mi evento.",
-    `Nombre: ${name}`, `Teléfono: ${phone}`, `Evento: ${form.tipo.value}`,
-    form.fecha.value && `Fecha: ${form.fecha.value}`, `Invitados: ${guests}`,
+  const text = ["Hola Frescore Gourmet, quiero planificar mi evento.",
+    `Nombre: ${form.nombre.value.trim()}`, `Teléfono: ${form.telefono.value.trim()}`, `Evento: ${form.tipo.value}`,
+    form.fecha.value && `Fecha: ${form.fecha.value}`, `Invitados: ${parseInt(form.invitados.value, 10)}`,
     form.lugar.value.trim() && `Lugar: ${form.lugar.value.trim()}`,
     `Estaciones: ${picked.join(", ")}`,
     form.mensaje.value.trim() && `Detalles: ${form.mensaje.value.trim()}`].filter(Boolean).join("\n");
@@ -635,6 +867,14 @@ form.addEventListener("submit", e => {
   if (motionOK) gsap.from("#f-done", {y:20, opacity:0, duration:.6, ease:"power3.out"});
   wa.focus();
 });
+
+/* Botón flotante: aparece después de la portada y se esconde en el formulario */
+const fab = $("#fab");
+let pastHero = false, atForm = false;
+const updFab = () => fab.classList.toggle("show", pastHero && !atForm && sheet.hidden);
+new IntersectionObserver(([en]) => { pastHero = !en.isIntersecting; updFab(); }).observe($("#inicio"));
+new IntersectionObserver(([en]) => { atForm = en.isIntersecting; updFab(); }, {rootMargin:"0px 0px -30% 0px"}).observe($("#reservar"));
+new MutationObserver(updFab).observe(sheet, {attributes:true, attributeFilter:["hidden"]});
 
 if (!motionOK) return;
 
@@ -647,7 +887,7 @@ if (window.Lenis) {
   lenis.on("scroll", ScrollTrigger.update);
   gsap.ticker.add(t => lenis.raf(t * 1000));
   gsap.ticker.lagSmoothing(0);
-  document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener("click", e => {
+  document.querySelectorAll('a[href^="#"]:not([data-close])').forEach(a => a.addEventListener("click", e => {
     const t = document.querySelector(a.getAttribute("href"));
     if (t) { e.preventDefault(); lenis.scrollTo(t, {offset: a.getAttribute("href") === "#inicio" ? 0 : -70, duration:1.6}); }
   }));
@@ -780,7 +1020,7 @@ document.querySelectorAll("#steps li").forEach(li => {
 });
 
 /* 8. Titulares de sección: suben desde una máscara */
-document.querySelectorAll(".hs-head h2, .gallery-head h2, .process h2, .book h2").forEach(h => {
+document.querySelectorAll(".hs-head h2, .gallery-head h2, .process h2, .book h2, .combos-head h2").forEach(h => {
   gsap.from(h, {yPercent:40, opacity:0, duration:1.2, ease:"expo.out", scrollTrigger:{trigger:h, start:"top 88%"}});
 });
 
