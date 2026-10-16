@@ -37,7 +37,7 @@
 html.lenis,html.lenis body{height:auto}
 .lenis.lenis-smooth{scroll-behavior:auto!important}
 .lenis.lenis-stopped{overflow:hidden}
-body{background:var(--night);color:var(--ivory);font:300 17px/1.65 var(--f-body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font-variant-numeric:lining-nums;background:var(--night);color:var(--ivory);font:300 17px/1.65 var(--f-body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:90;background:var(--night)}
 a{color:inherit}
 img,video{display:block;max-width:100%}
@@ -142,15 +142,14 @@ p{margin:0}
 .card:nth-child(even){border-radius:14px 14px 220px 220px}
 .card-img{position:absolute;inset:-6% -12%;}
 .card-img img{width:100%;height:100%;object-fit:cover}
-.card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,5,0) 35%,rgba(5,5,5,.92));transition:opacity .5s}
+.card::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(5,5,5,.35) 0%,rgba(5,5,5,.42) 38%,rgba(5,5,5,.9) 66%,rgba(5,5,5,.98) 100%);transition:opacity .5s}
 .card-sign{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:10px;padding:30px;text-align:center;background:radial-gradient(ellipse at 50% 35%,rgba(240,180,106,.16),transparent 60%),var(--night)}
 .card-sign .slats{position:absolute;left:0;right:0;bottom:0;--h:64px}
 .card:nth-child(even) .card-sign .slats{bottom:auto;top:0;transform:scaleY(-1)}
 .card-sign strong{font:600 clamp(1.9rem,2.8vw,2.6rem)/1.05 var(--f-display);color:var(--brass);letter-spacing:.06em;text-shadow:0 0 22px rgba(240,180,106,.35)}
 .card-sign em{font:400 1.5rem/1 var(--f-script);color:var(--ivory)}
 .card-txt{position:absolute;z-index:2;left:26px;right:26px;bottom:26px}
-.card:nth-child(even) .card-txt{bottom:auto;top:30px}
-.card:nth-child(even)::after{background:linear-gradient(0deg,rgba(5,5,5,0) 30%,rgba(5,5,5,.88) 62%,rgba(5,5,5,.97))}
+.card:nth-child(even) .card-txt{left:15%;right:15%;bottom:44px;text-align:center}
 .card.is-sign .card-txt h3,.card.is-sign .card-txt p{display:none}
 .card.is-sign::after{opacity:.4}
 .card-txt small{display:block;font-size:.82rem;color:var(--brass);margin-bottom:6px;font-variant-numeric:tabular-nums}
@@ -238,7 +237,7 @@ p{margin:0}
 .book-aside p{margin-top:20px;max-width:26rem;color:var(--sage)}
 .contact{margin-top:40px;display:grid;gap:20px}
 .contact small{display:block;font-size:.84rem;color:var(--sage)}
-.contact a{font:400 1.5rem/1.25 var(--f-display);text-decoration:none;color:var(--ivory);word-break:break-word;background:linear-gradient(var(--brass),var(--brass)) left bottom/0 1px no-repeat;transition:background-size .5s var(--ease)}
+.contact a{font:400 1.3rem/1.3 var(--f-body);letter-spacing:.02em;font-variant-numeric:lining-nums tabular-nums;text-decoration:none;color:var(--ivory);word-break:break-word;background:linear-gradient(var(--brass),var(--brass)) left bottom/0 1px no-repeat;transition:background-size .5s var(--ease)}
 .contact a:hover{background-size:100% 1px}
 form{display:grid;grid-template-columns:1fr 1fr;gap:28px 26px;min-width:0}
 .fl{position:relative;min-width:0}
@@ -283,7 +282,7 @@ footer .slats{margin-bottom:80px}
 .card.in-cart::before{content:"✓ En tu cotización";position:absolute;z-index:3;left:50%;bottom:22px;transform:translateX(-50%);padding:7px 14px;border-radius:999px;background:var(--ember);color:var(--night);font:500 .78rem/1 var(--f-body);white-space:nowrap}
 .card.in-cart{border-color:var(--ember);box-shadow:0 0 0 1px var(--ember),0 0 40px rgba(240,180,106,.25)}
 .card.in-cart .card-txt{opacity:.25}
-.card:nth-child(odd).in-cart::before{bottom:auto;top:46%}
+.card.in-cart::before{bottom:auto;top:26px}
 
 /* ---------- Botón flotante ---------- */
 .fab{position:fixed;z-index:65;right:max(18px,env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));display:flex;gap:10px;align-items:center;transform:translateY(140%);opacity:0;transition:transform .6s var(--ease),opacity .4s;pointer-events:none}
@@ -314,13 +313,16 @@ footer .slats{margin-bottom:80px}
 .combos-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px;margin-bottom:30px}
 .combos-head h2{font-size:clamp(2.2rem,4vw,3.4rem)}
 .combos-head p{max-width:26rem;color:var(--sage)}
-.combo-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.combo-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+@media (max-width:1240px){.combo-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 .combo{display:flex;flex-direction:column;gap:12px;padding:26px;border:1px solid var(--line);background:linear-gradient(180deg,var(--night-2),var(--night));transition:border-color .4s,box-shadow .4s}
 .combo:hover{border-color:var(--brass)}
 .combo.used{border-color:var(--ember);box-shadow:0 0 30px rgba(240,180,106,.18)}
 .combo h3{font-size:1.9rem}
 .combo .for{font:400 1.35rem/1 var(--f-script);color:var(--brass)}
-.combo ul{list-style:none;margin:0;padding:0;display:grid;gap:4px;flex:1}
+.combo ul{list-style:none;margin:0 0 auto;padding:0;display:grid;gap:4px;align-content:start}
+.combo{gap:14px}
+.combo .pill{margin-top:8px;white-space:nowrap;padding:0 18px}
 .combo li{font-size:.95rem;color:var(--ivory);padding-left:16px;position:relative}
 .combo li::before{content:"";position:absolute;left:0;top:.7em;width:7px;height:1px;background:var(--brass)}
 .combo .pill{align-self:flex-start;min-height:42px;font-size:.86rem}
@@ -467,9 +469,10 @@ form{display:block}
       </div>
       <div class="combo-grid">
         <article class="combo"><span class="for">Corporativos</span><h3>Corporativo ágil</h3><ul><li>Menú Gourmet</li><li>Hojas Frescas</li><li>Aroma y Cacao</li></ul><button class="pill" type="button" data-combo="gourmet,fit,aroma">Agregar combinación</button></article>
-        <article class="combo"><span class="for">Institucionales</span><h3>Acto institucional</h3><ul><li>Sabores de Italia</li><li>Hojas Frescas</li><li>Aroma y Cacao</li></ul><button class="pill" type="button" data-combo="italia,fit,aroma">Agregar combinación</button></article>
-        <article class="combo"><span class="for">Multitudinarios</span><h3>Alto volumen</h3><ul><li>Pizza</li><li>Cocina Mexicana</li><li>Delicia Tropical</li></ul><button class="pill" type="button" data-combo="pizza,mexico,oasis">Agregar combinación</button></article>
-        <article class="combo"><span class="for">Fiestas</span><h3>Fiesta tropical</h3><ul><li>Barbacoa</li><li>Cocina Mexicana</li><li>Delicia Tropical</li><li>Dominicano Aquí</li></ul><button class="pill" type="button" data-combo="barbacoa,mexico,oasis,dominicana">Agregar combinación</button></article>
+        <article class="combo"><span class="for">Institucionales</span><h3>Acto institucional</h3><ul><li>Sabores de Italia</li><li>Cocina Mexicana</li><li>Delicias Orientales</li></ul><button class="pill" type="button" data-combo="italia,mexico,asia">Agregar combinación</button></article>
+        <article class="combo"><span class="for">Multitudinarios</span><h3>Alto volumen</h3><ul><li>Pizza</li><li>Cocina Mexicana</li><li>Dominicano Aquí</li></ul><button class="pill" type="button" data-combo="pizza,mexico,dominicana">Agregar combinación</button></article>
+        <article class="combo"><span class="for">Fiestas</span><h3>Fiesta tropical</h3><ul><li>Barbacoa</li><li>Delicia Tropical</li><li>Dominicano Aquí</li></ul><button class="pill" type="button" data-combo="barbacoa,oasis,dominicana">Agregar combinación</button></article>
+        <article class="combo"><span class="for">Temporada</span><h3>Fiestas de Navidad</h3><ul><li>Dominicano Aquí</li><li>Pizza</li><li>Delicia Tropical</li><li>Aroma y Cacao</li><li>Hojas Frescas</li></ul><button class="pill" type="button" data-combo="dominicana,pizza,oasis,aroma,fit">Agregar combinación</button></article>
       </div>
     </div>
   </section>
@@ -628,41 +631,41 @@ form{display:block}
 /* ================= Datos ================= */
 const STATIONS = [
   {id:"italia", name:"Sabores de Italia", tag:"La gran rueda de parmesano", img:"italy.webp", pos:"50% 60%",
-   desc:"Pastas terminadas al momento dentro de nuestra rueda de queso parmesano, frente a tus invitados.",
-   menu:[["Elige tu pasta",["Penne","Rigatoni","Spaghetti","Linguini"]],["Salsas",["Pesto","Boloñesa","Tomate fresco","Ragú"]],["Especialidades italianas",["Involtini de berenjena","Lasaña de res","Berenjena a la parmesana","Lasaña de ricotta y espinaca","Ensalada caprese"]]]},
-  {id:"asia", name:"Delicias Orientales", tag:"Wok y sushi en vivo", img:"asia.webp", pos:"50% 55%",
-   desc:"Cocina china al wok y sushi enrollado al momento, con complementos y salsas a elección.",
-   menu:[["Cocina china",["Chicken ginger teriyaki","Fileticos de res con puerro","Egg rolls de vegetales","Chop suey de pollo"]],["Acompañados de",["Chofán mixto","Arroz blanco"]],["Sushi",["Salmón tradicional y ahumado","Camarón tempura y cocido","Atún clásico y picante"]],["Complementos y salsas",["Pepino, zanahoria, aguacate","Cebollín y queso crema","Soya, anguila y mayo picante"]]]},
-  {id:"miga", name:"Bocados Artesanales", tag:"Panes rellenos al momento", img:"bocados.webp", pos:"40% 50%", long:true,
-   desc:"Panes horneados en la estación y rellenos con embutidos, quesos y vegetales de inspiración italiana.",
-   menu:[["Focaccia",["<b>Jamón serrano</b>, rúcula fresca y reducción balsámica","<b>Burrata</b>, tomates confitados y pesto de albahaca","<b>Vegetales grillados</b> con queso de cabra","<b>Queso brie</b>, trufa y miel"]],["Baguette",["<b>Roast beef</b>, mostaza Dijon y cebolla caramelizada","<b>Salmón ahumado</b>, queso crema y eneldo","<b>Pollo grillado</b>, aguacate y alioli"]],["Ciabatta",["<b>Prosciutto</b>, mozzarella fresca y albahaca","<b>Pollo grillado</b>, pesto y lascas de parmesano","<b>Berenjena asada</b>, queso de cabra y miel"]],["Pan integral",["<b>Pavo</b>, queso crema ligero, pepino y eneldo","<b>Pollo desmenuzado</b>, manzana verde, nueces y yogur griego","<b>Atún</b>, aguacate, tomate y toque de limón"]]]},
-  {id:"pizza", name:"Pizza", tag:"Mini pizzas y personales", img:"pizza.webp", pos:"28% 50%",
-   desc:"Pizzas personales y mini pizzas horneadas al momento, con 16 variedades para elegir.",
+   desc:"Pastas terminadas al momento en nuestra rueda de queso parmesano. La esencia de la cocina italiana.",
+   menu:[["Elige tu pasta",["Penne","Rigatoni","Spaghetti","Linguini"]],["Salsas",["Pesto","Boloñesa","Tomate fresco","Ragú"]],["Complemento",["Parmesano en polvo"]],["Especialidades italianas",["Involtini de berenjena","Lasaña de res","Berenjena a la parmesana","Ensalada caprese","Lasaña de ricotta y espinaca"]]]},
+  {id:"asia", name:"Delicias Orientales", tag:"Cocina china y sushi", img:"asia.webp", pos:"50% 55%",
+   desc:"Cocina china y sushi. Todos los servicios se acompañan del arroz de su selección.",
+   menu:[["China",["Chicken ginger teriyaki","Fileticos de res con puerro","Egg rolls de vegetales","Chop suey de pollo"]],["Arroz de su selección",["Chofán mixto","Arroz blanco"]],["Sushi",["Salmón tradicional y ahumado","Camarón tempura y cocido","Atún clásico y picante"]],["Escoge tus complementos",["Pepino, zanahoria, aguacate, cebollín y queso crema"]],["Variedad de salsas",["Soya, anguila y mayo picante"]]]},
+  {id:"miga", name:"Bocados Artesanales", tag:"Sándwiches entre panes", img:"bocados.webp", pos:"40% 50%", long:true,
+   desc:"Sándwiches en focaccia, baguette, pan integral y ciabatta.",
+   menu:[["Focaccia",["Jamón serrano, rúcula fresca y reducción balsámica","Burrata, tomates confitados y pesto de albahaca","Vegetales grillados (zucchini y berenjena) con queso de cabra","Queso brie, trufa y miel"]],["Baguette",["Roast beef, mostaza Dijon y cebolla caramelizada","Salmón ahumado, queso crema y eneldo","Pollo grillado, aguacate y alioli"]],["Pan integral",["Pavo, queso crema ligero, pepino y eneldo","Pollo desmenuzado, manzana verde, nueces y yogurt griego","Atún, aguacate, tomate y toque de limón"]],["Ciabatta",["Prosciutto, mozzarella fresca y hojas de albahaca","Pollo grillado, pesto y lascas de parmesano","Berenjena asada, queso de cabra y toque de miel"]]]},
+  {id:"pizza", name:"Pizza", tag:"Mini pizzas y pizzas personales", img:"pizza.webp", pos:"28% 50%",
+   desc:"Mini pizzas y pizzas personales.",
    menu:[["Nuestras variedades",["Queso","Doble queso","Pepperoni","Maíz","Jamón","Jamón y piña","Meat Lovers","Suprema","Ajo y perejil","Caponata de vegetales","Margarita","Mortadela con pistacho","Prosciutto y rúcula","Cebolla caramelizada","Mexicana","Salchichas picantes"]]]},
   {id:"barbacoa", name:"Barbacoa", tag:"Parrilla al momento", img:"barbacoa.webp", pos:"30% 50%",
-   desc:"Carnes a la parrilla, acompañamientos y salsas de la casa, servidos calientes desde la brasa.",
-   menu:[["De la parrilla",["Costillas BBQ","Pollo a la parrilla","Pulled pork","Sándwich BBQ","Hamburguesas","Salchichas artesanales","Choripán","Hot dogs"]],["Acompañantes",["Mazorca asada","Papas rústicas"]],["Salsas",["BBQ clásica","BBQ picante","Miel ahumada","Mostaza dulce","Chinola y mostaza"]]]},
-  {id:"mexico", name:"Cocina Mexicana", tag:"Tacos, burritos y antojitos", img:"mexicana.webp", pos:"55% 50%",
-   desc:"Tacos blandos o duros, burritos, enchiladas y especialidades crujientes, con complementos al gusto.",
-   menu:[["Tacos",["Pollo al chipotle","Ropa vieja","Blandos o duros"]],["Especialidades",["Nachos Supreme","Flautas de pollo o res","Quesadillas artesanales","Burritos","Enchiladas"]],["Bowls",["Mexican Bowl: arroz, proteína y toppings","Taco Bowl, sin tortilla"]],["Complementos",["Guacamole fresco","Pico de gallo","Maíz dulce","Frijoles negros","Cheddar o mozzarella","Cilantro, cebolla y limón"]]]},
+   desc:"Carnes, acompañamientos y salsas a la parrilla al momento.",
+   menu:[["Nuestras especialidades",["Pollo","Costillas a la parrilla BBQ","Hamburguesas","Salchichas","Mazorcas asadas","Hot dogs","Papas rústicas","Choripán"]],["Salsas",["BBQ clásica","BBQ picante","Miel ahumada","Mostaza dulce","Chinola y mostaza"]]]},
+  {id:"mexico", name:"Cocina Mexicana", tag:"Tacos, especialidades y bowls", img:"mexicana.webp", pos:"55% 50%",
+   desc:"Tacos blandos o duros, especialidades y bowls con complementos.",
+   menu:[["Tacos",["Pollo al chipotle","Ropa vieja","Blandos o duros"]],["Especialidades",["Quesadillas artesanales","Flautas crujientes, rellenas de pollo o res, servidas con crema y pico de gallo","Nachos Supreme, con queso, carne, guacamole, crema y jalapeños"]],["Bowls",["Mexican Bowl: base de arroz + proteína + toppings frescos","Taco Bowl: sin tortilla"]],["Complementos",["Guacamole fresco","Pico de gallo","Maíz dulce","Frijoles negros","Queso cheddar / mozzarella","Cilantro, cebolla y limón"]]], long:true},
   {id:"fit", name:"Hojas Frescas", tag:"Una parada saludable", img:"hojas-frescas.webp", pos:"50% 55%", long:true,
-   desc:"Ensaladas armadas al momento con ingredientes frescos y proteínas marinadas.",
-   menu:[["Ensaladas",["<b>Pollo tropical</b>: lechuga, mango, tomate cherry, maíz, zanahoria, mozzarella y pepino","<b>Tiras de res</b>: lechuga, pico de gallo, guacamole, maíz, zanahoria, cheddar y habichuelas cremosas","<b>Pollo sésamo</b>: pollo marinado en soya, zanahoria, repollo y cebollín","<b>Griega</b>: lechuga, tomate cherry, pepino, aceitunas, cebolla roja y feta","<b>Mediterránea</b>: atún, lechuga, pepino, aceitunas, cebolla roja y tomate cherry"]]]},
-  {id:"frutas", name:"Frutas Frescas", tag:"Selección tropical", img:"frutas.webp", pos:"50% 50%",
-   desc:"Vasos de fruta fresca, jugos naturales y smoothies 100% fruta, con toppings a elección.",
-   menu:[["Vasos de frutas",["Piña","Melón","Sandía","Mango","Mix tropical"]],["Smoothies naturales",["100% fruta, del día"]],["Jugos naturales",["Naranja","Piña","Chinola","Fresa","Mango","Mix tropical","Detox verde"]],["Toppings",["Leche condensada","Miel","Chocolate","Caramelo","Yogur","Granola","Coco rallado","Nueces","Chía","Tajín, limón y sal rosada"]]]},
+   desc:"Ensaladas frescas.",
+   menu:[["Ensaladas",["<b>Pollo tropical</b>: cuadros de pollo, lechuga, mango, tomate cherry, maíz, zanahoria, queso mozzarella y pepino","Tiras de filete de res, lechuga, pico de gallo, guacamole, maíz, zanahoria, queso cheddar y habichuelas cremosas","<b>Griega</b>: lechuga, tomate cherry, pepino, aceitunas, cebolla roja y queso feta","<b>Pollo sésamo</b>: cuadros de pollo marinados en soya, zanahoria, repollo y cebollín","<b>Mediterránea</b>: atún, lechuga, pepino, aceitunas, cebolla roja y tomate cherry"]]]},
+  {id:"frutas", name:"Frutas Frescas", tag:"Frutas y jugos naturales", img:"frutas.webp", pos:"50% 50%",
+   desc:"Fresh Cup, Tropical Mix y Green Boost: frutas, jugos naturales y toppings.",
+   menu:[["Frutas",["Piña","Sandía","Melón","Papaya","Fresas","Mango","Uvas","Kiwi","Cerezas"]],["Jugos naturales",["Naranja","Piña","Chinola","Fresa","Mango","Mix tropical","Detox verde"]],["Toppings",["Leche condensada","Miel","Chocolate","Caramelo","Yogurt","Tajín / limón / sal rosada","Granola","Coco rallado","Nueces","Chía"]]]},
   {id:"oasis", name:"Delicia Tropical", tag:"Fresco y refrescante", img:"delicia-tropical.webp", pos:"50% 60%",
-   desc:"Coco de agua abierto al momento, frío frío de sabores y smoothies frappé, con o sin licor.",
-   menu:[["Coco de agua",["Coco fresco con hielo frappé","Opción con tequila o ron blanco"]],["Frío frío",["Fresa","Mango","Maracuyá","Piña","Limón","Coco","Menta","Con licor: anís, curaçao o Baileys"]],["Smoothies",["Mojito tradicional","Paloma","Mojito de fresas","Ponche de frutas, sin alcohol"]]]},
+   desc:"Bebidas tropicales.",
+   menu:[["Coco de agua",["Coco de agua fresco con hielo frappé","Opción de tequila o ron blanco"]],["Yum Yum",["Sabores variados","Opciones con licores: anís, curaçao y Baileys"]],["Smoothies",["Mojito tradicional","Paloma","Mojito de fresas","Ponche de frutas (sin alcohol)"]]]},
   {id:"aroma", name:"Aroma y Cacao", tag:"Sabores dulces", img:"aroma-y-cacao.webp", pos:"50% 50%",
-   desc:"Café de especialidad de nuestro barista, churros rellenos y fuentes de chocolate. Show y experiencia.",
-   menu:[["De nuestro barista",["Espresso","Americano","Cappuccino","Latte con arte en vivo","Mocha","Caramel macchiato","Espresso tonic","Affogato: helado de vainilla y espresso"]],["Café con licores",["Baileys","Amaretto","Kahlúa"]],["Churros",["Clásico","Azúcar y canela","Dulce de leche","Chocolate","Nutella","Crema pastelera","Guayaba"]],["Fuentes de chocolate",["Chocolate negro","Chocolate blanco","Caramelo","Con fresas y marshmallows"]]]},
-  {id:"gourmet", name:"Menú Gourmet", tag:"Alta cocina en vivo", img:"gourmet.webp", pos:"50% 60%",
-   desc:"Caviar, salmón, bogavante y paella de mariscos, servidos al momento por nuestros chefs.",
-   menu:[["La selección",["<b>Caviar y blinis</b> con crema agria","<b>Salmón ahumado</b> con alcaparras y cebollitas encurtidas","<b>Bogavante</b> en tartaletas","<b>Paella de mariscos</b> terminada en vivo"]]], long:true},
-  {id:"dominicana", name:"Dominicano Aquí", tag:"El sabor que nos une", img:"dominicano.webp", pos:"50% 55%",
-   desc:"Nuestro menú especial dominicano: proteínas al horno y en caja china con las guarniciones de siempre.",
-   menu:[["Platos principales",["Pierna de cerdo horneada o en caja china","Pollo con crema y hongos","Filete de res al Oporto","Jamón glaseado con melocotón"]],["Guarniciones",["Moro de guandules","Arroz con tocineta y plátano maduro","Arroz primavera o navideño","Pastelón de plátano maduro con queso","Pastelón de batata con marshmallow","Soufflé de maíz","Pasteles en hoja de pollo y res","Ensalada rusa","Ensalada verde","Pastelitos","Telera"]]]}
+   desc:"Café de especialidad, churros rellenos y fuentes de chocolate. Show + experiencia.",
+   menu:[["De nuestro barista",["Affogato station: helado de vainilla + shot de espresso","Café con licores: Baileys, Amaretto y Kahlúa","Espresso tonic: moderno y refrescante","Latte art en vivo","Capuchino"]],["Churros rellenos",["Dulce de leche","Chocolate","Nutella"]],["Fuentes de chocolate",["Chocolate negro, chocolate blanco y caramelo","Marshmallows y fresas"]]], long:true},
+  {id:"gourmet", name:"Menú Gourmet", tag:"Menú a la medida", img:"gourmet.webp", pos:"50% 60%",
+   desc:"Consúltanos por el menú de esta estación y lo preparamos a la medida de tu evento.",
+   menu:[]},
+  {id:"dominicana", name:"Dominicano Aquí", tag:"Menú especial", img:"dominicano.webp", pos:"50% 55%",
+   desc:"Menú especial dominicano.",
+   menu:[["Platos principales",["Pierna de cerdo horneada","Pollo con crema y hongos","Filete de res al Oporto","Jamón glaseado con melocotón"]],["Guarniciones",["Moro de guandules","Arroz con tocineta y plátano maduro","Arroz primaveral o navideño","Soufflé de maíz","Ensalada rusa","Ensalada verde","Pastelón de batata con marshmallow","Pasteles en hoja de pollo y res","Pastelitos","Telera"]]]}
 ];
 const IMG = "assets/img/";
 const pad = n => String(n).padStart(2, "0");
