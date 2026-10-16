@@ -62,7 +62,7 @@ p{margin:0}
 .door.top{top:0;box-shadow:0 2px 0 var(--ember),0 0 40px 6px rgba(240,180,106,.45)}
 .door.bot{bottom:0;box-shadow:0 -2px 0 var(--ember),0 0 40px 6px rgba(240,180,106,.45)}
 .loader-mark{position:relative;text-align:center}
-.loader-mark .script{display:block;font-size:clamp(3.4rem,9vw,6rem);line-height:1;color:var(--ivory)}
+.loader-mark img{display:block;width:min(64vw,360px);height:auto;margin-inline:auto}
 .loader-mark .count{display:block;margin-top:14px;font:400 .85rem/1 var(--f-body);letter-spacing:.3em;color:var(--brass);font-variant-numeric:tabular-nums}
 
 /* ---------- Cursor (solo con mouse) ---------- */
@@ -80,8 +80,7 @@ p{margin:0}
 .nav.is-solid{background:rgba(5,5,5,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .nav.is-hidden{transform:translateY(-110%)}
 .logo{text-decoration:none;line-height:1;padding-block:4px}
-.logo b{display:block;font:400 2rem/1 var(--f-script);color:var(--ivory)}
-.logo small{display:block;font:500 .56rem/1 var(--f-body);letter-spacing:.55em;color:var(--sage);margin-top:2px;padding-left:3px}
+.logo img{display:block;height:46px;width:auto}
 .nav nav{margin-left:auto;display:flex;gap:30px}
 .nav nav a{position:relative;text-decoration:none;font-size:.93rem;color:var(--sage);transition:color .3s}
 .nav nav a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:var(--brass);transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ease)}
@@ -95,52 +94,41 @@ p{margin:0}
 .pill.solid::before{background:var(--ivory)}
 .nav .pill{min-height:42px;padding:0 20px;font-size:.86rem}
 @media (max-width:880px){.nav nav{display:none}.nav .pill{margin-left:auto;white-space:nowrap}}
-@media (max-width:380px){.nav .pill{padding:0 12px;font-size:.8rem}.logo b{font-size:1.7rem}}
+@media (max-width:380px){.nav .pill{padding:0 12px;font-size:.8rem}.logo img{height:40px}}
 
-/* ---------- Hero: el portal ---------- */
+/* ---------- Hero: texto a la izquierda, video a la derecha ---------- */
 .hero{position:relative}
-.hero-pin{position:relative;height:100svh;min-height:620px;overflow:hidden;display:grid;place-items:center}
-.hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 50% 45% at 50% 50%,rgba(240,180,106,.15),transparent 70%)}
+.hero-pin{position:relative;min-height:calc(100svh - 0px);display:flex;align-items:center;padding-block:120px 90px;overflow:hidden}
+.hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 40% 55% at 72% 50%,rgba(240,180,106,.16),transparent 70%);pointer-events:none}
 .hero-pin > .slats{position:absolute;left:0;right:0;bottom:0;z-index:4}
-.hero-title{position:absolute;inset:0;pointer-events:none;font-size:clamp(3.2rem,10.5vw,10.5rem);font-weight:400;letter-spacing:-.02em;color:var(--ivory)}
-.hero-title .l{position:absolute;white-space:nowrap}
-.hero-title .l1{left:5vw;top:18%}
-.hero-title .l2{right:5vw;bottom:15%;font-style:italic;color:var(--brass)}
+.hero-grid{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(32px,5vw,80px);align-items:center}
+.hero-copy{min-width:0}
+.hero-title{margin-top:10px;font-size:clamp(3rem,6.2vw,6.2rem);font-weight:400;letter-spacing:-.015em;color:var(--ivory);line-height:1}
+.hero-title .l{display:block;white-space:nowrap}
+.hero-title .l2{font-style:italic;color:var(--brass)}
 .hero-title .ch{display:inline-block;will-change:transform}
-.portal{position:relative;z-index:2;width:min(36vmin,330px);height:min(36vmin,330px);border-radius:50%;overflow:hidden;background:#000;box-shadow:0 0 0 3px #1a1a1a,0 0 0 6px var(--teak-dark),0 30px 90px rgba(0,0,0,.55),0 0 90px rgba(240,180,106,.3)}
-.portal .slats{position:absolute;left:0;right:0;bottom:0;z-index:2;--h:40px;opacity:0}
-.portal video{width:100%;height:100%;object-fit:cover}
-.portal::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,transparent 55%,rgba(5,5,5,.45))}
-.hero-sub{position:absolute;z-index:3;left:5vw;bottom:7%;max-width:19rem;font-size:1rem;color:var(--sage)}
-.hero-sub strong{display:block;font-weight:400;color:var(--ivory);margin-bottom:4px}
-.hero-sub .pill{margin-top:18px}
-.scroll-hint{position:absolute;z-index:3;right:5vw;bottom:7%;display:flex;align-items:center;gap:12px;font-size:.85rem;color:var(--sage)}
-.scroll-hint i{display:block;width:1px;height:46px;background:linear-gradient(var(--brass),transparent);animation:drip 2.2s var(--ease) infinite}
-@keyframes drip{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.hero-lede{margin-top:26px;max-width:34rem;font:400 clamp(1.25rem,1.7vw,1.6rem)/1.4 var(--f-display);color:var(--ivory)}
+.hero-lede em{font-style:italic;color:var(--brass)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.hero-note{margin-top:22px;font-size:.92rem;color:var(--sage)}
+.hero-media{position:relative;justify-self:end;width:min(100%,460px)}
+.portal{position:relative;width:100%;aspect-ratio:480/560;max-width:100%;border-radius:240px 240px 16px 16px;overflow:hidden;background:#000;box-shadow:0 0 0 3px #1a1a1a,0 0 0 6px var(--teak-dark),0 30px 90px rgba(0,0,0,.6),0 0 90px rgba(240,180,106,.22)}
+.portal video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.portal::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,5,.25),transparent 30%,transparent 75%,rgba(5,5,5,.35))}
+.portal .slats{position:absolute;left:0;right:0;bottom:0;z-index:2;--h:34px}
 @media (max-width:880px){
-  .hero-title{font-size:clamp(2.8rem,13vw,5rem)}
-  .hero-title .l1{left:22px;top:15%}
-  .hero-title .l2{right:22px;bottom:24%}
-  .portal{width:58vw;height:58vw}
-  .hero-sub{left:22px;right:22px;bottom:5%;max-width:none}
-  .hero-pin{min-height:0}
-  .hero-sub .sub-rest{display:none}
-  .hero-sub .pill{margin-top:12px;width:100%}
-  .hero-title .l2{bottom:calc(5% + 108px)}
-  .hero-title .l1{top:13%}
-  .scroll-hint{display:none}
+  .hero-pin{min-height:0;padding-block:104px 70px}
+  .hero-grid{grid-template-columns:minmax(0,1fr);gap:36px}
+  .hero-title{font-size:clamp(2.6rem,12vw,4.2rem)}
+  .hero-media{justify-self:center;width:min(100%,380px)}
+  .hero-actions .pill{flex:1 1 auto}
 }
 
-/* ---------- Manifiesto ---------- */
-.manifesto{padding-block:150px 130px}
-.manifesto p{font:400 clamp(1.9rem,3.7vw,3.3rem)/1.18 var(--f-display);max-width:22ch;color:var(--ivory)}
-.manifesto p em{font-style:italic;color:var(--brass)}
-.manifesto .w{display:inline}
-.facts{display:flex;flex-wrap:wrap;gap:20px 64px;margin-top:70px;padding-top:28px;border-top:1px solid var(--line)}
+.facts-band{padding-block:56px 70px}
+.facts{display:flex;flex-wrap:wrap;gap:20px 64px;padding-top:28px;border-top:1px solid var(--line)}
 .facts div{min-width:0}
 .facts strong{display:block;font:400 2.6rem/1 var(--f-display);color:var(--ivory);font-variant-numeric:tabular-nums}
 .facts span{font-size:.95rem;color:var(--sage)}
-@media (max-width:880px){.manifesto{padding-block:96px 84px}}
 
 /* ---------- Estaciones: pasillo horizontal ---------- */
 .hs{position:relative;padding-block:104px 60px;overflow:hidden}
@@ -162,7 +150,7 @@ p{margin:0}
 .card-sign em{font:400 1.5rem/1 var(--f-script);color:var(--ivory)}
 .card-txt{position:absolute;z-index:2;left:26px;right:26px;bottom:26px}
 .card:nth-child(even) .card-txt{bottom:auto;top:30px}
-.card:nth-child(even)::after{background:linear-gradient(0deg,rgba(5,5,5,0) 35%,rgba(5,5,5,.92))}
+.card:nth-child(even)::after{background:linear-gradient(0deg,rgba(5,5,5,0) 30%,rgba(5,5,5,.88) 62%,rgba(5,5,5,.97))}
 .card.is-sign .card-txt h3,.card.is-sign .card-txt p{display:none}
 .card.is-sign::after{opacity:.4}
 .card-txt small{display:block;font-size:.82rem;color:var(--brass);margin-bottom:6px;font-variant-numeric:tabular-nums}
@@ -285,8 +273,8 @@ legend{font-size:.84rem;color:var(--brass);margin-bottom:12px}
 footer{padding-block:0 34px;overflow:hidden}
 @media (max-width:880px){footer{padding-bottom:96px}}
 footer .slats{margin-bottom:80px}
-.foot-word{font:400 clamp(3.6rem,21vw,22rem)/.8 var(--f-script);color:var(--ivory);text-align:center;letter-spacing:-.01em}
-.foot-word span{display:block;font:500 clamp(.7rem,1.2vw,1rem)/1 var(--f-body);letter-spacing:1.1em;color:var(--brass);margin-top:10px;padding-left:1.1em}
+.foot-word{text-align:center}
+.foot-word img{display:block;width:min(86vw,720px);height:auto;margin-inline:auto}
 .foot-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;margin-top:70px;font-size:.86rem;color:var(--sage)}
 
 /* ---------- Contador de cotización ---------- */
@@ -385,14 +373,14 @@ form{display:block}
 <body>
 <div class="loader" id="loader" aria-hidden="true">
   <div class="door top"></div><div class="door bot"></div>
-  <div class="loader-mark"><span class="script">Frescore</span><span class="count" id="count">000</span></div>
+  <div class="loader-mark"><img src="assets/img/frescore-logo-light.svg" alt=""><span class="count" id="count">000</span></div>
 </div>
 <div class="cursor" id="cursor" aria-hidden="true"><span>Ver menú</span></div>
 <div class="grain" aria-hidden="true"></div>
 
 <header class="nav" id="nav">
   <div class="wrap">
-    <a class="logo" href="#inicio" aria-label="Frescore Gourmet, inicio"><b>Frescore</b><small>GOURMET</small></a>
+    <a class="logo" href="#inicio" aria-label="Frescore Gourmet, inicio"><img src="assets/img/frescore-logo-light.svg" alt="Frescore Gourmet" width="105" height="48"></a>
     <nav aria-label="Principal">
       <a href="#estaciones">Estaciones</a>
       <a href="#galeria">El salón</a>
@@ -407,29 +395,35 @@ form{display:block}
   <section class="hero" id="inicio" aria-label="Frescore Gourmet">
     <div class="hero-pin" id="hero-pin">
       <div class="hero-glow"></div>
-      <h1 class="hero-title" id="hero-title">
-        <span class="l l1">Un evento,</span>
-        <span class="l l2">muchos sabores</span>
-      </h1>
-      <div class="portal" id="portal">
-        <video autoplay muted loop playsinline preload="auto" poster="assets/img/poster.jpg" aria-label="Recorrido por un salón con estaciones Frescore Gourmet">
-          <source src="assets/video/frescore-salon.mp4" type="video/mp4">
-        </video>
-        <div class="slats" id="plinth" aria-hidden="true"></div>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow" id="hero-eyebrow">Una experiencia para vivirla</p>
+          <h1 class="hero-title" id="hero-title">
+            <span class="l l1">Un evento,</span>
+            <span class="l l2">muchos sabores</span>
+          </h1>
+          <p class="hero-lede" id="manifesto">Convierte tu evento en un recorrido gastronómico. Cada invitado elige, combina y disfruta sus sabores favoritos sin filas eternas, <em>y la comida se vuelve uno de los grandes atractivos del evento.</em></p>
+          <div class="hero-actions" id="hero-actions"><a class="pill solid" href="#reservar">Planifica tu evento</a><a class="pill" href="#estaciones">Ver las 12 estaciones</a></div>
+          <p class="hero-note" id="hero-note">Estaciones gastronómicas en vivo para eventos corporativos, institucionales, multitudinarios y fiestas.</p>
+        </div>
+        <div class="hero-media">
+          <div class="portal" id="portal">
+            <video autoplay muted loop playsinline preload="auto" poster="assets/img/poster.jpg" aria-label="Estaciones Frescore Gourmet sirviendo en vivo">
+              <source src="assets/video/frescore-salon.mp4" type="video/mp4">
+            </video>
+            <div class="slats" aria-hidden="true"></div>
+          </div>
+        </div>
       </div>
-      <div class="hero-sub" id="hero-sub"><p><strong>Estaciones gastronómicas en vivo</strong><span class="sub-rest">para eventos corporativos, institucionales, multitudinarios y fiestas.</span></p><a class="pill solid" href="#reservar">Planifica tu evento</a></div>
-      <div class="scroll-hint" id="hint"><i></i>Desliza para entrar al salón</div>
       <div class="slats" aria-hidden="true"></div>
     </div>
   </section>
 
-  <section class="manifesto" aria-label="Concepto">
+  <section class="facts-band" aria-label="En pocas palabras">
     <div class="wrap">
-      <p class="eyebrow">Una experiencia para vivirla</p>
-      <p id="manifesto">Convierte tu evento en un recorrido gastronómico. Cada invitado elige, combina y disfruta sus sabores favoritos sin filas eternas, <em>y la comida se vuelve uno de los grandes atractivos del evento.</em></p>
       <div class="facts">
-        <div><strong data-count="11">11</strong><span>estaciones temáticas</span></div>
-        <div><strong data-count="200">200+</strong><span>personas por estación, y se suman las que necesites</span></div>
+        <div><strong data-count="12">12</strong><span>estaciones temáticas</span></div>
+        <div><strong>200+</strong><span>personas por estación, y se suman las que necesites</span></div>
         <div><strong>En vivo</strong><span>cocina, coctelería y barista</span></div>
       </div>
     </div>
@@ -442,10 +436,10 @@ form{display:block}
         <p>Cada estación sirve desde 200 personas y se suman las que tu evento necesite, hasta <span class="pending-inline" title="Dato pendiente del cliente">el máximo que nos confirmes</span>. Elige tu tipo de evento y empezamos por ahí.</p>
       </div>
       <div class="types-grid">
-        <button class="type" type="button" data-type="Evento corporativo" data-cursor=""><img src="assets/img/miga-de-oro.webp" alt="" loading="lazy" style="object-position:40% 50%"><div><h3>Corporativos</h3><p>Convenciones, lanzamientos, ferias y aniversarios de empresa, con servicio ágil para tu personal y tus clientes.</p><span class="card-cta">Planifica tu evento corporativo</span></div></button>
+        <button class="type" type="button" data-type="Evento corporativo" data-cursor=""><img src="assets/img/bocados.webp" alt="" loading="lazy" style="object-position:40% 50%"><div><h3>Corporativos</h3><p>Convenciones, lanzamientos, ferias y aniversarios de empresa, con servicio ágil para tu personal y tus clientes.</p><span class="card-cta">Planifica tu evento corporativo</span></div></button>
         <button class="type" type="button" data-type="Evento institucional" data-cursor=""><img src="assets/img/aroma-y-cacao.webp" alt="" loading="lazy" style="object-position:62% 50%"><div><h3>Institucionales</h3><p>Actos oficiales, congresos, graduaciones y eventos de gobierno, universidades y fundaciones, con presentación impecable.</p><span class="card-cta">Planifica tu evento institucional</span></div></button>
         <button class="type" type="button" data-type="Evento multitudinario" data-cursor=""><img src="assets/img/salon.webp" alt="" loading="lazy"><div><h3>Multitudinarios</h3><p>Festivales, conciertos, activaciones de marca y eventos masivos. Varias estaciones a la vez para servir a cientos de personas sin filas.</p><span class="card-cta">Planifica tu evento masivo</span></div></button>
-        <button class="type" type="button" data-type="Fiesta" data-cursor=""><img src="assets/img/oasis-tropical.webp" alt="" loading="lazy"><div><h3>Fiestas</h3><p>Fiestas de fin de año, cumpleaños y celebraciones privadas, con estaciones que se vuelven parte del ambiente.</p><span class="card-cta">Planifica tu fiesta</span></div></button>
+        <button class="type" type="button" data-type="Fiesta" data-cursor=""><img src="assets/img/delicia-tropical.webp" alt="" loading="lazy"><div><h3>Fiestas</h3><p>Fiestas de fin de año, cumpleaños y celebraciones privadas, con estaciones que se vuelven parte del ambiente.</p><span class="card-cta">Planifica tu fiesta</span></div></button>
       </div>
     </div>
   </section>
@@ -457,7 +451,7 @@ form{display:block}
         <h2 id="hs-t">Elige tus stands</h2>
       </div>
       <p>Recorre las estaciones y abre cada una para ver su menú completo. Las que elijas pasan directo a tu cotización.</p>
-      <p class="hs-count" aria-hidden="true"><b id="hs-now">01</b> / 11</p>
+      <p class="hs-count" aria-hidden="true"><b id="hs-now">01</b> / 12</p>
     </div>
     <div class="hs-scroller" id="hs-scroller">
       <div class="hs-track" id="hs-track"></div>
@@ -469,13 +463,13 @@ form{display:block}
     <div class="wrap">
       <div class="combos-head">
         <div><p class="eyebrow">¿No sabes por dónde empezar?</p><h2 id="combos-t">Combinaciones sugeridas</h2></div>
-        <p>Tres estaciones que funcionan bien juntas. Agrega la combinación a tu cotización y ajústala a tu gusto.</p>
+        <p>Estaciones que funcionan bien juntas. Agrega la combinación a tu cotización y ajústala a tu gusto.</p>
       </div>
       <div class="combo-grid">
-        <article class="combo"><span class="for">Corporativos</span><h3>Corporativo ágil</h3><ul><li>La Miga de Oro</li><li>Crunchy &amp; Fit</li><li>Aroma y Cacao</li></ul><button class="pill" type="button" data-combo="miga,fit,aroma">Agregar combinación</button></article>
-        <article class="combo"><span class="for">Institucionales</span><h3>Acto institucional</h3><ul><li>Flavor from Italy</li><li>Crunchy &amp; Fit</li><li>Aroma y Cacao</li></ul><button class="pill" type="button" data-combo="italia,fit,aroma">Agregar combinación</button></article>
-        <article class="combo"><span class="for">Multitudinarios</span><h3>Alto volumen</h3><ul><li>Pizza</li><li>Barbacoa Express</li><li>Oasis Tropical</li></ul><button class="pill" type="button" data-combo="pizza,barbacoa,oasis">Agregar combinación</button></article>
-        <article class="combo"><span class="for">Fiestas</span><h3>Fiesta tropical</h3><ul><li>Barbacoa Express</li><li>México Lindo</li><li>Oasis Tropical</li></ul><button class="pill" type="button" data-combo="barbacoa,mexico,oasis">Agregar combinación</button></article>
+        <article class="combo"><span class="for">Corporativos</span><h3>Corporativo ágil</h3><ul><li>Menú Gourmet</li><li>Hojas Frescas</li><li>Aroma y Cacao</li></ul><button class="pill" type="button" data-combo="gourmet,fit,aroma">Agregar combinación</button></article>
+        <article class="combo"><span class="for">Institucionales</span><h3>Acto institucional</h3><ul><li>Sabores de Italia</li><li>Hojas Frescas</li><li>Aroma y Cacao</li></ul><button class="pill" type="button" data-combo="italia,fit,aroma">Agregar combinación</button></article>
+        <article class="combo"><span class="for">Multitudinarios</span><h3>Alto volumen</h3><ul><li>Pizza</li><li>Cocina Mexicana</li><li>Delicia Tropical</li></ul><button class="pill" type="button" data-combo="pizza,mexico,oasis">Agregar combinación</button></article>
+        <article class="combo"><span class="for">Fiestas</span><h3>Fiesta tropical</h3><ul><li>Barbacoa</li><li>Cocina Mexicana</li><li>Delicia Tropical</li><li>Cocina Dominicana</li></ul><button class="pill" type="button" data-combo="barbacoa,mexico,oasis,dominicana">Agregar combinación</button></article>
       </div>
     </div>
   </section>
@@ -503,14 +497,14 @@ form{display:block}
           <figure class="ph"><img src="assets/img/sushi.webp" alt="Rolls de sushi cortados al momento" loading="lazy"><figcaption>Sushi enrollado al momento</figcaption></figure>
         </div>
         <div class="col" data-speed="-10">
-          <figure class="ph wide"><img src="assets/img/oasis-tropical.webp" alt="Estación Oasis Tropical con cocos de agua" loading="lazy"><figcaption>Oasis Tropical</figcaption></figure>
+          <figure class="ph wide"><img src="assets/img/delicia-tropical.webp" alt="Estación Delicia Tropical con cocos de agua" loading="lazy"><figcaption>Delicia Tropical</figcaption></figure>
           <figure class="ph"><img src="assets/img/invitados.webp" alt="Invitados recorriendo las estaciones" loading="lazy"><figcaption>Tus invitados, eligiendo</figcaption></figure>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="proof" aria-labelledby="proof-t">
+  <section class="proof" aria-labelledby="proof-t" hidden>
     <div class="wrap">
       <div class="gallery-head">
         <div><p class="eyebrow">Lo que ya hemos servido</p><h2 id="proof-t">Eventos que hablan por nosotros</h2></div>
@@ -610,7 +604,7 @@ form{display:block}
 <footer>
   <div class="slats" style="--h:18px" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="foot-word" id="foot-word">Frescore<span>GOURMET</span></div>
+    <div class="foot-word" id="foot-word"><img src="assets/img/frescore-logo-light.svg" alt="Frescore Gourmet" width="720" height="330" loading="lazy"></div>
     <div class="foot-row"><span>Estaciones gastronómicas para eventos · República Dominicana</span><span>© <span id="yr">2026</span> Frescore Gourmet</span></div>
   </div>
 </footer>
@@ -633,38 +627,41 @@ form{display:block}
 (() => {
 /* ================= Datos ================= */
 const STATIONS = [
-  {id:"italia", name:"Flavor from Italy", tag:"La gran rueda de parmesano", img:"italy.webp", pos:"50% 35%",
+  {id:"italia", name:"Sabores de Italia", tag:"La gran rueda de parmesano", img:"italy.webp", pos:"50% 60%",
    desc:"Pastas terminadas al momento dentro de nuestra rueda de queso parmesano, frente a tus invitados.",
    menu:[["Elige tu pasta",["Penne","Rigatoni","Spaghetti","Linguini"]],["Salsas",["Pesto","Boloñesa","Tomate fresco","Ragú"]],["Especialidades italianas",["Involtini de berenjena","Lasaña de res","Berenjena a la parmesana","Lasaña de ricotta y espinaca","Ensalada caprese"]]]},
-  {id:"asia", name:"Asia", tag:"Wok y sushi en vivo", img:"asia.webp", pos:"50% 40%",
+  {id:"asia", name:"Delicias Orientales", tag:"Wok y sushi en vivo", img:"asia.webp", pos:"50% 55%",
    desc:"Cocina china al wok y sushi enrollado al momento, con complementos y salsas a elección.",
    menu:[["Cocina china",["Chicken ginger teriyaki","Fileticos de res con puerro","Egg rolls de vegetales","Chop suey de pollo"]],["Acompañados de",["Chofán mixto","Arroz blanco"]],["Sushi",["Salmón tradicional y ahumado","Camarón tempura y cocido","Atún clásico y picante"]],["Complementos y salsas",["Pepino, zanahoria, aguacate","Cebollín y queso crema","Soya, anguila y mayo picante"]]]},
-  {id:"miga", name:"La Miga de Oro", tag:"Italia entre panes", img:"miga-de-oro.webp", pos:"40% 50%", long:true,
+  {id:"miga", name:"Bocados Artesanales", tag:"Panes rellenos al momento", img:"bocados.webp", pos:"40% 50%", long:true,
    desc:"Panes horneados en la estación y rellenos con embutidos, quesos y vegetales de inspiración italiana.",
    menu:[["Focaccia",["<b>Jamón serrano</b>, rúcula fresca y reducción balsámica","<b>Burrata</b>, tomates confitados y pesto de albahaca","<b>Vegetales grillados</b> con queso de cabra","<b>Queso brie</b>, trufa y miel"]],["Baguette",["<b>Roast beef</b>, mostaza Dijon y cebolla caramelizada","<b>Salmón ahumado</b>, queso crema y eneldo","<b>Pollo grillado</b>, aguacate y alioli"]],["Ciabatta",["<b>Prosciutto</b>, mozzarella fresca y albahaca","<b>Pollo grillado</b>, pesto y lascas de parmesano","<b>Berenjena asada</b>, queso de cabra y miel"]],["Pan integral",["<b>Pavo</b>, queso crema ligero, pepino y eneldo","<b>Pollo desmenuzado</b>, manzana verde, nueces y yogur griego","<b>Atún</b>, aguacate, tomate y toque de limón"]]]},
   {id:"pizza", name:"Pizza", tag:"Mini pizzas y personales", img:"pizza.webp", pos:"28% 50%",
    desc:"Pizzas personales y mini pizzas horneadas al momento, con 16 variedades para elegir.",
    menu:[["Nuestras variedades",["Queso","Doble queso","Pepperoni","Maíz","Jamón","Jamón y piña","Meat Lovers","Suprema","Ajo y perejil","Caponata de vegetales","Margarita","Mortadela con pistacho","Prosciutto y rúcula","Cebolla caramelizada","Mexicana","Salchichas picantes"]]]},
-  {id:"barbacoa", name:"Barbacoa Express", tag:"Parrilla al momento", img:null,
+  {id:"barbacoa", name:"Barbacoa", tag:"Parrilla al momento", img:"barbacoa.webp", pos:"30% 50%",
    desc:"Carnes a la parrilla, acompañamientos y salsas de la casa, servidos calientes desde la brasa.",
-   menu:[["Nuestras especialidades",["Pollo","Costillas BBQ","Hamburguesas","Salchichas","Choripán","Hot dogs","Mazorcas asadas","Papas rústicas"]],["Salsas",["BBQ clásica","BBQ picante","Miel ahumada","Mostaza dulce","Chinola y mostaza"]]]},
-  {id:"mexico", name:"México Lindo", tag:"Tacos, bowls y antojitos", img:null,
-   desc:"Tacos blandos o duros, especialidades crujientes y bowls armados al gusto.",
-   menu:[["Tacos",["Pollo al chipotle","Ropa vieja","Blandos o duros"]],["Especialidades",["Quesadillas artesanales","Flautas de pollo o res con crema y pico de gallo","Nachos Supreme"]],["Bowls",["Mexican Bowl: arroz, proteína y toppings","Taco Bowl, sin tortilla"]],["Complementos",["Guacamole fresco","Pico de gallo","Maíz dulce","Frijoles negros","Cheddar o mozzarella","Cilantro, cebolla y limón"]]]},
-  {id:"fit", name:"Crunchy & Fit", tag:"Una parada saludable", img:"crunchy-fit.webp", pos:"50% 50%", long:true,
+   menu:[["De la parrilla",["Costillas BBQ","Pollo a la parrilla","Pulled pork","Sándwich BBQ","Hamburguesas","Salchichas artesanales","Choripán","Hot dogs"]],["Acompañantes",["Mazorca asada","Papas rústicas"]],["Salsas",["BBQ clásica","BBQ picante","Miel ahumada","Mostaza dulce","Chinola y mostaza"]]]},
+  {id:"mexico", name:"Cocina Mexicana", tag:"Tacos, burritos y antojitos", img:"mexicana.webp", pos:"55% 50%",
+   desc:"Tacos blandos o duros, burritos, enchiladas y especialidades crujientes, con complementos al gusto.",
+   menu:[["Tacos",["Pollo al chipotle","Ropa vieja","Blandos o duros"]],["Especialidades",["Nachos Supreme","Flautas de pollo o res","Quesadillas artesanales","Burritos","Enchiladas"]],["Bowls",["Mexican Bowl: arroz, proteína y toppings","Taco Bowl, sin tortilla"]],["Complementos",["Guacamole fresco","Pico de gallo","Maíz dulce","Frijoles negros","Cheddar o mozzarella","Cilantro, cebolla y limón"]]]},
+  {id:"fit", name:"Hojas Frescas", tag:"Una parada saludable", img:"hojas-frescas.webp", pos:"50% 55%", long:true,
    desc:"Ensaladas armadas al momento con ingredientes frescos y proteínas marinadas.",
    menu:[["Ensaladas",["<b>Pollo tropical</b>: lechuga, mango, tomate cherry, maíz, zanahoria, mozzarella y pepino","<b>Tiras de res</b>: lechuga, pico de gallo, guacamole, maíz, zanahoria, cheddar y habichuelas cremosas","<b>Pollo sésamo</b>: pollo marinado en soya, zanahoria, repollo y cebollín","<b>Griega</b>: lechuga, tomate cherry, pepino, aceitunas, cebolla roja y feta","<b>Mediterránea</b>: atún, lechuga, pepino, aceitunas, cebolla roja y tomate cherry"]]]},
-  {id:"frutas", name:"Fresh Cup", tag:"Frutas y jugos naturales", img:null,
-   desc:"Vasos de fruta fresca y jugos naturales en tres estilos: Fresh Cup, Tropical Mix y Green Boost.",
-   menu:[["Frutas",["Piña","Sandía","Melón","Papaya","Fresas","Mango","Uvas","Kiwi","Cerezas"]],["Jugos naturales",["Naranja","Piña","Chinola","Fresa","Mango","Mix tropical","Detox verde"]],["Toppings",["Leche condensada","Miel","Chocolate","Caramelo","Yogur","Granola","Coco rallado","Nueces","Chía","Tajín, limón y sal rosada"]]]},
-  {id:"oasis", name:"Oasis Tropical", tag:"Fresco y refrescante", img:"oasis-tropical.webp", pos:"50% 50%",
+  {id:"frutas", name:"Frutas Frescas", tag:"Selección tropical", img:"frutas.webp", pos:"50% 50%",
+   desc:"Vasos de fruta fresca, jugos naturales y smoothies 100% fruta, con toppings a elección.",
+   menu:[["Vasos de frutas",["Piña","Melón","Sandía","Mango","Mix tropical"]],["Smoothies naturales",["100% fruta, del día"]],["Jugos naturales",["Naranja","Piña","Chinola","Fresa","Mango","Mix tropical","Detox verde"]],["Toppings",["Leche condensada","Miel","Chocolate","Caramelo","Yogur","Granola","Coco rallado","Nueces","Chía","Tajín, limón y sal rosada"]]]},
+  {id:"oasis", name:"Delicia Tropical", tag:"Fresco y refrescante", img:"delicia-tropical.webp", pos:"50% 60%",
    desc:"Coco de agua abierto al momento, frío frío de sabores y smoothies frappé, con o sin licor.",
    menu:[["Coco de agua",["Coco fresco con hielo frappé","Opción con tequila o ron blanco"]],["Frío frío",["Fresa","Mango","Maracuyá","Piña","Limón","Coco","Menta","Con licor: anís, curaçao o Baileys"]],["Smoothies",["Mojito tradicional","Paloma","Mojito de fresas","Ponche de frutas, sin alcohol"]]]},
   {id:"aroma", name:"Aroma y Cacao", tag:"Sabores dulces", img:"aroma-y-cacao.webp", pos:"50% 50%",
    desc:"Café de especialidad de nuestro barista, churros rellenos y fuentes de chocolate. Show y experiencia.",
    menu:[["De nuestro barista",["Espresso","Americano","Cappuccino","Latte con arte en vivo","Mocha","Caramel macchiato","Espresso tonic","Affogato: helado de vainilla y espresso"]],["Café con licores",["Baileys","Amaretto","Kahlúa"]],["Churros",["Clásico","Azúcar y canela","Dulce de leche","Chocolate","Nutella","Crema pastelera","Guayaba"]],["Fuentes de chocolate",["Chocolate negro","Chocolate blanco","Caramelo","Con fresas y marshmallows"]]]},
-  {id:"especial", name:"Menú Especial", tag:"Cena festiva dominicana", img:null,
-   desc:"Platos principales y guarniciones de temporada para cenas de fin de año y celebraciones especiales.",
+  {id:"gourmet", name:"Menú Gourmet", tag:"Alta cocina en vivo", img:"gourmet.webp", pos:"50% 60%",
+   desc:"Caviar, salmón, bogavante y paella de mariscos, servidos al momento por nuestros chefs.",
+   menu:[["La selección",["<b>Caviar y blinis</b> con crema agria","<b>Salmón ahumado</b> con alcaparras y cebollitas encurtidas","<b>Bogavante</b> en tartaletas","<b>Paella de mariscos</b> terminada en vivo"]]], long:true},
+  {id:"dominicana", name:"Cocina Dominicana", tag:"Sabor criollo de temporada", img:null,
+   desc:"Platos principales y guarniciones dominicanas para fiestas de fin de año y celebraciones.",
    menu:[["Platos principales",["Pierna de cerdo horneada","Pollo con crema y hongos","Filete de res al Oporto","Jamón glaseado con melocotón"]],["Guarniciones",["Moro de guandules","Arroz con tocineta y plátano maduro","Arroz primavera o navideño","Soufflé de maíz","Ensalada rusa","Ensalada verde","Pastelón de batata con marshmallow","Pasteles en hoja de pollo y res","Pastelitos","Telera"]]]}
 ];
 const IMG = "assets/img/";
@@ -906,37 +903,21 @@ document.querySelectorAll("#hero-title .l").forEach(l => {
   l.setAttribute("aria-label", l.textContent);
   l.innerHTML = [...l.textContent].map(c => `<span class="ch" aria-hidden="true">${c === " " ? "&nbsp;" : c}</span>`).join("");
 });
-/* Separar el manifiesto en palabras */
-const man = $("#manifesto");
-man.querySelectorAll("*").length; // conservar el <em>
-const wrapWords = node => {
-  [...node.childNodes].forEach(n => {
-    if (n.nodeType === 3) {
-      const frag = document.createDocumentFragment();
-      n.textContent.split(/(\s+)/).forEach(w => {
-        if (!w.trim()) { frag.appendChild(document.createTextNode(w)); return; }
-        const s = document.createElement("span"); s.className = "w"; s.textContent = w; frag.appendChild(s);
-      });
-      n.replaceWith(frag);
-    } else wrapWords(n);
-  });
-};
-wrapWords(man);
-
 /* 1. Preloader: cuenta y las puertas se abren */
 const intro = gsap.timeline({defaults:{ease:"expo.inOut"}});
 const counter = {v:0};
 gsap.set(".hero-title .ch", {yPercent:110, opacity:0});
-gsap.set("#portal", {scale:.6, opacity:0});
-gsap.set(["#hero-sub", "#hint", "#nav"], {opacity:0, y:20});
+gsap.set("#portal", {clipPath:"inset(40% 20% 40% 20% round 240px)", opacity:0});
+gsap.set(["#hero-eyebrow", "#manifesto", "#hero-actions", "#hero-note", "#nav"], {opacity:0, y:24});
 intro
   .to(counter, {v:100, duration:1.3, ease:"power2.inOut", onUpdate:() => $("#count").textContent = String(Math.round(counter.v)).padStart(3, "0")})
   .to(".loader-mark", {opacity:0, y:-20, duration:.5, ease:"power2.in"}, "-=.1")
   .to(".door.top", {yPercent:-101, duration:1.1}, "<.2")
   .to(".door.bot", {yPercent:101, duration:1.1}, "<")
-  .to("#portal", {scale:1, opacity:1, duration:1.4, ease:"expo.out"}, "<.3")
+  .to("#portal", {clipPath:"inset(0% 0% 0% 0% round 0px)", opacity:1, duration:1.6, ease:"expo.inOut"}, "<.2")
   .to(".hero-title .ch", {yPercent:0, opacity:1, duration:1.2, stagger:.025, ease:"expo.out"}, "<.1")
-  .to(["#hero-sub", "#hint", "#nav"], {opacity:1, y:0, duration:.9, stagger:.08, ease:"power3.out"}, "<.4")
+  .to(["#hero-eyebrow", "#manifesto", "#hero-actions", "#hero-note", "#nav"], {opacity:1, y:0, duration:.9, stagger:.09, ease:"power3.out"}, "<.3")
+  .add(() => gsap.set("#portal", {clearProps:"clipPath"}))
   .add(() => loader.remove());
 /* Respaldo: si algo frena la intro, el sitio queda visible */
 setTimeout(() => { if (document.body.contains(loader)) { intro.progress(1); } }, 5000);
@@ -945,14 +926,11 @@ setTimeout(() => { if (document.body.contains(loader)) { intro.progress(1); } },
 const mm = gsap.matchMedia();
 mm.add({desk:"(min-width:881px)", mob:"(max-width:880px)"}, ctx => {
   const {desk} = ctx.conditions;
-  const tl = gsap.timeline({scrollTrigger:{trigger:"#hero-pin", start:"top top", end:"+=120%", scrub:1, pin:true, anticipatePin:1}});
-  tl.to("#portal", {width: desk ? "min(470px,36vw)" : "86vw", height: desk ? "88svh" : "74svh", borderRadius: desk ? "235px 235px 22px 22px" : "43vw 43vw 18px 18px", ease:"none"}, 0)
-    .to("#hero-sub", {opacity: desk ? 1 : 0, ease:"none"}, 0)
-    .to("#plinth", {opacity:1, ease:"none"}, .35)
-    .to(".hero-title .l1", {xPercent:-35, opacity:.25, ease:"none"}, 0)
-    .to(".hero-title .l2", {xPercent:35, opacity:.25, ease:"none"}, 0)
-    .to(".hero-glow", {opacity:0, ease:"none"}, 0)
-    .to("#hint", {opacity:0, ease:"none"}, 0);
+  /* el video se desplaza suave al bajar */
+  gsap.to("#portal video", {yPercent: desk ? 8 : 4, scale:1.06, ease:"none",
+    scrollTrigger:{trigger:"#hero-pin", start:"top top", end:"bottom top", scrub:true}});
+  gsap.to(".hero-copy", {yPercent:-6, opacity:.4, ease:"none",
+    scrollTrigger:{trigger:"#hero-pin", start:"center center", end:"bottom top", scrub:true}});
 
   /* 3. Estaciones: pasillo horizontal (solo escritorio) */
   if (desk) {
@@ -988,8 +966,7 @@ mm.add({desk:"(min-width:881px)", mob:"(max-width:880px)"}, ctx => {
 });
 
 /* 4. Manifiesto: las palabras se encienden al leer */
-gsap.fromTo("#manifesto .w", {opacity:.16}, {opacity:1, stagger:.08, ease:"none",
-  scrollTrigger:{trigger:"#manifesto", start:"top 80%", end:"bottom 45%", scrub:true}});
+
 
 /* Contadores */
 document.querySelectorAll("[data-count]").forEach(el => {
