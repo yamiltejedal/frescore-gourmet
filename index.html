@@ -8,7 +8,7 @@
 <meta property="og:image" content="assets/img/miga-de-oro.webp">
 <title>Frescore Gourmet</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Frescore Gourmet: estaciones gastronómicas en vivo para eventos corporativos, fiestas y eventos multitudinarios en República Dominicana.">
+<meta name="description" content="Frescore Gourmet: estaciones gastronómicas en vivo para eventos corporativos, institucionales, multitudinarios y fiestas en República Dominicana.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap">
@@ -17,9 +17,9 @@
 /* Layout: recorrido cinematográfico por el salón con la piel del stand (laca negra, teca, luz ámbar). El disco del logo se abre como portal,
    el pasillo de estaciones corre en horizontal y cada menú se despliega a pantalla completa. */
 :root{
-  --night:#14110e;      /* panel negro laqueado del stand */
-  --night-2:#1d1915;    /* superficies elevadas */
-  --moss:#3a2a1d;       /* bordes y separadores profundos */
+  --night:#050505;      /* negro del panel del stand */
+  --night-2:#111111;    /* superficies elevadas */
+  --moss:#2c2c2c;       /* bordes y separadores profundos */
   --teak:#8a5530;       /* listones de madera */
   --teak-dark:#3a2416;
   --brass:#c9a46a;      /* letras doradas del letrero */
@@ -77,7 +77,7 @@ p{margin:0}
 /* ---------- Navegación ---------- */
 .nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:70;transition:transform .5s var(--ease),background .4s}
 .nav .wrap{display:flex;align-items:center;gap:28px;min-height:76px}
-.nav.is-solid{background:rgba(20,17,14,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav.is-solid{background:rgba(5,5,5,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .nav.is-hidden{transform:translateY(-110%)}
 .logo{text-decoration:none;line-height:1;padding-block:4px}
 .logo b{display:block;font:400 2rem/1 var(--f-script);color:var(--ivory)}
@@ -107,10 +107,10 @@ p{margin:0}
 .hero-title .l1{left:5vw;top:18%}
 .hero-title .l2{right:5vw;bottom:15%;font-style:italic;color:var(--brass)}
 .hero-title .ch{display:inline-block;will-change:transform}
-.portal{position:relative;z-index:2;width:min(36vmin,330px);height:min(36vmin,330px);border-radius:50%;overflow:hidden;background:#000;box-shadow:0 0 0 3px #2a2018,0 0 0 6px var(--teak-dark),0 30px 90px rgba(0,0,0,.55),0 0 90px rgba(240,180,106,.3)}
+.portal{position:relative;z-index:2;width:min(36vmin,330px);height:min(36vmin,330px);border-radius:50%;overflow:hidden;background:#000;box-shadow:0 0 0 3px #1a1a1a,0 0 0 6px var(--teak-dark),0 30px 90px rgba(0,0,0,.55),0 0 90px rgba(240,180,106,.3)}
 .portal .slats{position:absolute;left:0;right:0;bottom:0;z-index:2;--h:40px;opacity:0}
 .portal video{width:100%;height:100%;object-fit:cover}
-.portal::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,transparent 55%,rgba(20,17,14,.45))}
+.portal::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,transparent 55%,rgba(5,5,5,.45))}
 .hero-sub{position:absolute;z-index:3;left:5vw;bottom:7%;max-width:19rem;font-size:1rem;color:var(--sage)}
 .hero-sub strong{display:block;font-weight:400;color:var(--ivory);margin-bottom:4px}
 .hero-sub .pill{margin-top:18px}
@@ -154,7 +154,7 @@ p{margin:0}
 .card:nth-child(even){border-radius:14px 14px 220px 220px}
 .card-img{position:absolute;inset:-6% -12%;}
 .card-img img{width:100%;height:100%;object-fit:cover}
-.card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,14,0) 35%,rgba(20,17,14,.92));transition:opacity .5s}
+.card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,5,0) 35%,rgba(5,5,5,.92));transition:opacity .5s}
 .card-sign{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:10px;padding:30px;text-align:center;background:radial-gradient(ellipse at 50% 35%,rgba(240,180,106,.16),transparent 60%),var(--night)}
 .card-sign .slats{position:absolute;left:0;right:0;bottom:0;--h:64px}
 .card:nth-child(even) .card-sign .slats{bottom:auto;top:0;transform:scaleY(-1)}
@@ -162,7 +162,7 @@ p{margin:0}
 .card-sign em{font:400 1.5rem/1 var(--f-script);color:var(--ivory)}
 .card-txt{position:absolute;z-index:2;left:26px;right:26px;bottom:26px}
 .card:nth-child(even) .card-txt{bottom:auto;top:30px}
-.card:nth-child(even)::after{background:linear-gradient(0deg,rgba(20,17,14,0) 35%,rgba(20,17,14,.92))}
+.card:nth-child(even)::after{background:linear-gradient(0deg,rgba(5,5,5,0) 35%,rgba(5,5,5,.92))}
 .card.is-sign .card-txt h3,.card.is-sign .card-txt p{display:none}
 .card.is-sign::after{opacity:.4}
 .card-txt small{display:block;font-size:.82rem;color:var(--brass);margin-bottom:6px;font-variant-numeric:tabular-nums}
@@ -196,7 +196,7 @@ p{margin:0}
 .sheet-menu li{padding:7px 0;border-bottom:1px solid rgba(201,164,106,.12);color:var(--sage);font-size:.98rem;line-height:1.45}
 .sheet-menu li b{font-weight:400;color:var(--ivory)}
 .sheet-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:40px}
-.sheet-close{position:absolute;top:calc(20px + env(safe-area-inset-top,0px));right:max(20px,env(safe-area-inset-right,0px));z-index:3;width:52px;height:52px;border-radius:50%;border:1px solid var(--line);background:rgba(20,17,14,.7);color:var(--ivory);font-size:1.4rem;cursor:pointer;transition:transform .5s var(--ease),background .3s}
+.sheet-close{position:absolute;top:calc(20px + env(safe-area-inset-top,0px));right:max(20px,env(safe-area-inset-right,0px));z-index:3;width:52px;height:52px;border-radius:50%;border:1px solid var(--line);background:rgba(5,5,5,.7);color:var(--ivory);font-size:1.4rem;cursor:pointer;transition:transform .5s var(--ease),background .3s}
 .sheet-close:hover{transform:rotate(90deg);background:var(--brass);color:var(--night)}
 .sheet-nav{display:flex;gap:10px;margin-top:18px}
 .sheet-nav button{background:none;border:0;color:var(--sage);font:400 .9rem/1 var(--f-body);cursor:pointer;padding:6px 0;border-bottom:1px solid transparent}
@@ -311,7 +311,7 @@ footer .slats{margin-bottom:80px}
 .types-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
 .type{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:440px;padding:0;border:1px solid var(--line);border-radius:200px 200px 10px 10px;overflow:hidden;background:var(--night-2);color:inherit;font:inherit;text-align:left;cursor:pointer}
 .type img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
-.type::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,14,0) 30%,rgba(20,17,14,.94) 78%)}
+.type::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,5,0) 30%,rgba(5,5,5,.94) 78%)}
 .type:hover img{transform:scale(1.06)}
 .type > div{position:relative;z-index:2;padding:24px}
 .type h3{font-size:2rem}
@@ -417,7 +417,7 @@ form{display:block}
         </video>
         <div class="slats" id="plinth" aria-hidden="true"></div>
       </div>
-      <div class="hero-sub" id="hero-sub"><p><strong>Estaciones gastronómicas en vivo</strong><span class="sub-rest">para eventos corporativos, fiestas y eventos de cientos o miles de personas.</span></p><a class="pill solid" href="#reservar">Planifica tu evento</a></div>
+      <div class="hero-sub" id="hero-sub"><p><strong>Estaciones gastronómicas en vivo</strong><span class="sub-rest">para eventos corporativos, institucionales, multitudinarios y fiestas.</span></p><a class="pill solid" href="#reservar">Planifica tu evento</a></div>
       <div class="scroll-hint" id="hint"><i></i>Desliza para entrar al salón</div>
       <div class="slats" aria-hidden="true"></div>
     </div>
@@ -443,9 +443,9 @@ form{display:block}
       </div>
       <div class="types-grid">
         <button class="type" type="button" data-type="Evento corporativo" data-cursor=""><img src="assets/img/miga-de-oro.webp" alt="" loading="lazy" style="object-position:40% 50%"><div><h3>Corporativos</h3><p>Convenciones, lanzamientos, ferias y aniversarios de empresa, con servicio ágil para tu personal y tus clientes.</p><span class="card-cta">Planifica tu evento corporativo</span></div></button>
+        <button class="type" type="button" data-type="Evento institucional" data-cursor=""><img src="assets/img/aroma-y-cacao.webp" alt="" loading="lazy" style="object-position:62% 50%"><div><h3>Institucionales</h3><p>Actos oficiales, congresos, graduaciones y eventos de gobierno, universidades y fundaciones, con presentación impecable.</p><span class="card-cta">Planifica tu evento institucional</span></div></button>
         <button class="type" type="button" data-type="Evento multitudinario" data-cursor=""><img src="assets/img/salon.webp" alt="" loading="lazy"><div><h3>Multitudinarios</h3><p>Festivales, conciertos, activaciones de marca y eventos masivos. Varias estaciones a la vez para servir a cientos de personas sin filas.</p><span class="card-cta">Planifica tu evento masivo</span></div></button>
-        <button class="type" type="button" data-type="Fiesta privada" data-cursor=""><img src="assets/img/oasis-tropical.webp" alt="" loading="lazy"><div><h3>Fiestas</h3><p>Cumpleaños, graduaciones, quinceañeros y fiestas privadas con estaciones que se vuelven parte del ambiente.</p><span class="card-cta">Planifica tu fiesta</span></div></button>
-        <button class="type" type="button" data-type="Fiesta de fin de año" data-cursor=""><img src="assets/img/aroma-y-cacao.webp" alt="" loading="lazy" style="object-position:62% 50%"><div><h3>Fin de año</h3><p>La fiesta de la empresa con menú especial de temporada, coctelería y estación dulce.</p><span class="card-cta">Planifica tu fiesta de fin de año</span></div></button>
+        <button class="type" type="button" data-type="Fiesta" data-cursor=""><img src="assets/img/oasis-tropical.webp" alt="" loading="lazy"><div><h3>Fiestas</h3><p>Fiestas de fin de año, cumpleaños y celebraciones privadas, con estaciones que se vuelven parte del ambiente.</p><span class="card-cta">Planifica tu fiesta</span></div></button>
       </div>
     </div>
   </section>
@@ -472,10 +472,10 @@ form{display:block}
         <p>Tres estaciones que funcionan bien juntas. Agrega la combinación a tu cotización y ajústala a tu gusto.</p>
       </div>
       <div class="combo-grid">
-        <article class="combo"><span class="for">Empresas</span><h3>Corporativo ágil</h3><ul><li>La Miga de Oro</li><li>Crunchy &amp; Fit</li><li>Aroma y Cacao</li></ul><button class="pill" type="button" data-combo="miga,fit,aroma">Agregar combinación</button></article>
-        <article class="combo"><span class="for">Eventos masivos</span><h3>Alto volumen</h3><ul><li>Pizza</li><li>Barbacoa Express</li><li>Oasis Tropical</li></ul><button class="pill" type="button" data-combo="pizza,barbacoa,oasis">Agregar combinación</button></article>
+        <article class="combo"><span class="for">Corporativos</span><h3>Corporativo ágil</h3><ul><li>La Miga de Oro</li><li>Crunchy &amp; Fit</li><li>Aroma y Cacao</li></ul><button class="pill" type="button" data-combo="miga,fit,aroma">Agregar combinación</button></article>
+        <article class="combo"><span class="for">Institucionales</span><h3>Acto institucional</h3><ul><li>Flavor from Italy</li><li>Crunchy &amp; Fit</li><li>Aroma y Cacao</li></ul><button class="pill" type="button" data-combo="italia,fit,aroma">Agregar combinación</button></article>
+        <article class="combo"><span class="for">Multitudinarios</span><h3>Alto volumen</h3><ul><li>Pizza</li><li>Barbacoa Express</li><li>Oasis Tropical</li></ul><button class="pill" type="button" data-combo="pizza,barbacoa,oasis">Agregar combinación</button></article>
         <article class="combo"><span class="for">Fiestas</span><h3>Fiesta tropical</h3><ul><li>Barbacoa Express</li><li>México Lindo</li><li>Oasis Tropical</li></ul><button class="pill" type="button" data-combo="barbacoa,mexico,oasis">Agregar combinación</button></article>
-        <article class="combo"><span class="for">Temporada</span><h3>Fin de año de empresa</h3><ul><li>Menú Especial</li><li>Oasis Tropical</li><li>Aroma y Cacao</li></ul><button class="pill" type="button" data-combo="especial,oasis,aroma">Agregar combinación</button></article>
       </div>
     </div>
   </section>
@@ -530,8 +530,8 @@ form{display:block}
       </div>
       <div class="projects">
         <article class="project"><div class="ph-box">Foto real del evento</div><small>Corporativo · 2026</small><h3>Nombre del evento</h3><p>Lugar, número de invitados y estaciones que se usaron.</p></article>
-        <article class="project"><div class="ph-box">Foto real del evento</div><small>Evento masivo · 2026</small><h3>Nombre del evento</h3><p>Lugar, número de invitados y estaciones que se usaron.</p></article>
-        <article class="project"><div class="ph-box">Foto real del evento</div><small>Fiesta · 2026</small><h3>Nombre del evento</h3><p>Lugar, número de invitados y estaciones que se usaron.</p></article>
+        <article class="project"><div class="ph-box">Foto real del evento</div><small>Institucional · 2026</small><h3>Nombre del evento</h3><p>Lugar, número de invitados y estaciones que se usaron.</p></article>
+        <article class="project"><div class="ph-box">Foto real del evento</div><small>Multitudinario · 2026</small><h3>Nombre del evento</h3><p>Lugar, número de invitados y estaciones que se usaron.</p></article>
       </div>
     </div>
   </section>
@@ -577,7 +577,7 @@ form{display:block}
         <fieldset class="pane" data-pane="1">
           <legend>Cuéntanos de tu evento</legend>
           <div class="grid2">
-            <div class="fl fixed"><select id="f-type" name="tipo"><option>Evento corporativo</option><option>Evento multitudinario</option><option>Fiesta privada</option><option>Fiesta de fin de año</option><option>Boda</option><option>Otro</option></select><label for="f-type">Tipo de evento</label></div>
+            <div class="fl fixed"><select id="f-type" name="tipo"><option>Evento corporativo</option><option>Evento institucional</option><option>Evento multitudinario</option><option>Fiesta</option><option>Otro</option></select><label for="f-type">Tipo de evento</label></div>
             <div class="fl fixed"><input id="f-date" name="fecha" type="date"><label for="f-date">Fecha del evento</label></div>
             <div class="fl"><input id="f-guests" name="invitados" type="number" min="200" step="10" placeholder=" " required><label for="f-guests">Invitados (desde 200)</label></div>
             <div class="fl"><input id="f-place" name="lugar" placeholder=" "><label for="f-place">Lugar o ciudad</label></div>
