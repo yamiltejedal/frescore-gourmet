@@ -3,15 +3,45 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta property="og:title" content="Frescore Gourmet">
-<meta property="og:description" content="Estaciones gastronómicas en vivo para bodas, galas y eventos corporativos.">
-<meta property="og:image" content="assets/img/miga-de-oro.webp">
+<link rel="canonical" href="https://yamiltejedal.github.io/frescore-gourmet/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_DO">
+<meta property="og:site_name" content="Frescore Gourmet">
+<meta property="og:url" content="https://yamiltejedal.github.io/frescore-gourmet/">
+<meta property="og:title" content="Frescore Gourmet · Estaciones gastronómicas en vivo">
+<meta property="og:description" content="Estaciones gastronómicas en vivo para eventos corporativos, institucionales, multitudinarios y fiestas en República Dominicana.">
+<meta property="og:image" content="https://yamiltejedal.github.io/frescore-gourmet/assets/img/og-frescore.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <title>Frescore Gourmet</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Frescore Gourmet: estaciones gastronómicas en vivo para eventos corporativos, institucionales, multitudinarios y fiestas en República Dominicana.">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<meta name="theme-color" content="#050505">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FoodEstablishment","name":"Frescore Gourmet",
+ "description":"Estaciones gastronómicas en vivo para eventos corporativos, institucionales, multitudinarios y fiestas.",
+ "url":"https://yamiltejedal.github.io/frescore-gourmet/","logo":"https://yamiltejedal.github.io/frescore-gourmet/assets/img/icon-512.png",
+ "image":"https://yamiltejedal.github.io/frescore-gourmet/assets/img/og-frescore.jpg",
+ "telephone":"+1-829-546-6858","email":"frescoregourmet@gmail.com",
+ "address":{"@type":"PostalAddress","addressCountry":"DO"},"areaServed":{"@type":"Country","name":"República Dominicana"},
+ "servesCuisine":["Italiana","Oriental","Mexicana","Dominicana","Parrilla"],"priceRange":"$$$"}
+</script>
+<script>
+/* Analítica: pega aquí el token de Cloudflare Web Analytics (sin cookies). Vacío = desactivada. */
+window.FRESCORE_CF_TOKEN = "";
+if (window.FRESCORE_CF_TOKEN) { const t = document.createElement("script"); t.defer = true; t.src = "https://static.cloudflareinsights.com/beacon.min.js"; t.setAttribute("data-cf-beacon", JSON.stringify({token: window.FRESCORE_CF_TOKEN})); document.head.appendChild(t); }
+/* Conversiones (clics a WhatsApp, cotizaciones): se envían a GA4 si el cliente lo activa. */
+window.frescoreTrack = (name, data) => { try { window.gtag && window.gtag("event", name, data || {}); } catch (e) {} };
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap"></noscript>
 <script>document.documentElement.classList.add("js")</script>
 <style>
 /* Layout: recorrido cinematográfico por el salón con la piel del stand (laca negra, teca, luz ámbar). El disco del logo se abre como portal,
@@ -252,6 +282,11 @@ form{display:grid;grid-template-columns:1fr 1fr;gap:28px 26px;min-width:0}
 .fl::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--ember);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
 .fl:focus-within::after{transform:scaleX(1)}
 fieldset{border:0;margin:0;padding:0;min-width:0}
+.date-row .dlabel{display:block;font-size:.8rem;color:var(--brass);margin-bottom:2px}
+.dsel{display:grid;grid-template-columns:.8fr 1.4fr 1fr;gap:14px}
+.dsel select{width:100%;padding:12px 0 10px;background:transparent;border:0;border-bottom:1px solid var(--moss);border-radius:0;color:var(--ivory);font:400 1.05rem/1.4 var(--f-body);appearance:none;-webkit-appearance:none;cursor:pointer}
+.dsel select:focus{outline:none;border-color:var(--brass)}
+.dsel select option{background:var(--night-2)}
 legend{font-size:.84rem;color:var(--brass);margin-bottom:12px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{position:relative}
@@ -385,7 +420,7 @@ form{display:block}
     <a class="logo" href="#inicio" aria-label="Frescore Gourmet, inicio"><img src="assets/img/frescore-logo-light.svg" alt="Frescore Gourmet" width="105" height="48"></a>
     <nav aria-label="Principal">
       <a href="#estaciones">Estaciones</a>
-      <a href="#galeria">El salón</a>
+      <a href="#eventos">Eventos</a>
       <a href="#proceso">Cómo funciona</a>
       <a href="#reservar">Reservaciones</a>
     </nav>
@@ -400,7 +435,7 @@ form{display:block}
       <div class="wrap hero-grid">
         <div class="hero-copy">
           <p class="eyebrow" id="hero-eyebrow">Una experiencia para vivirla</p>
-          <h1 class="hero-title" id="hero-title">
+          <h1 class="hero-title" id="hero-title" aria-label="Un evento, muchos sabores">
             <span class="l l1">Un evento,</span>
             <span class="l l2">muchos sabores</span>
           </h1>
@@ -410,7 +445,7 @@ form{display:block}
         </div>
         <div class="hero-media">
           <div class="portal" id="portal">
-            <video autoplay muted loop playsinline preload="auto" poster="assets/img/poster.jpg" aria-label="Estaciones Frescore Gourmet sirviendo en vivo">
+            <video autoplay muted loop playsinline preload="auto" poster="assets/img/poster.webp" aria-label="Estaciones Frescore Gourmet sirviendo en vivo">
               <source src="assets/video/frescore-salon.mp4" type="video/mp4">
             </video>
             <div class="slats" aria-hidden="true"></div>
@@ -438,10 +473,10 @@ form{display:block}
         <p>Cada estación sirve desde 200 personas y se suman las que tu evento necesite, hasta <span class="pending-inline" title="Dato pendiente del cliente">el máximo que nos confirmes</span>. Elige tu tipo de evento y empezamos por ahí.</p>
       </div>
       <div class="types-grid">
-        <button class="type" type="button" data-type="Evento corporativo" data-cursor=""><img src="assets/img/bocados.webp" alt="" loading="lazy" style="object-position:40% 50%"><div><h3>Corporativos</h3><p>Convenciones, lanzamientos, ferias y aniversarios de empresa, con servicio ágil para tu personal y tus clientes.</p><span class="card-cta">Planifica tu evento corporativo</span></div></button>
-        <button class="type" type="button" data-type="Evento institucional" data-cursor=""><img src="assets/img/aroma-y-cacao.webp" alt="" loading="lazy" style="object-position:62% 50%"><div><h3>Institucionales</h3><p>Actos oficiales, congresos, graduaciones y eventos de gobierno, universidades y fundaciones, con presentación impecable.</p><span class="card-cta">Planifica tu evento institucional</span></div></button>
+        <button class="type" type="button" data-type="Evento corporativo" data-cursor=""><img src="assets/img/bocados-800.webp" alt="" loading="lazy" decoding="async" style="object-position:40% 50%"><div><h3>Corporativos</h3><p>Convenciones, lanzamientos, ferias y aniversarios de empresa, con servicio ágil para tu personal y tus clientes.</p><span class="card-cta">Planifica tu evento corporativo</span></div></button>
+        <button class="type" type="button" data-type="Evento institucional" data-cursor=""><img src="assets/img/aroma-y-cacao-800.webp" alt="" loading="lazy" decoding="async" style="object-position:62% 50%"><div><h3>Institucionales</h3><p>Actos oficiales, congresos, graduaciones y eventos de gobierno, universidades y fundaciones, con presentación impecable.</p><span class="card-cta">Planifica tu evento institucional</span></div></button>
         <button class="type" type="button" data-type="Evento multitudinario" data-cursor=""><img src="assets/img/salon.webp" alt="" loading="lazy"><div><h3>Multitudinarios</h3><p>Festivales, conciertos, activaciones de marca y eventos masivos. Varias estaciones a la vez para servir a cientos de personas sin filas.</p><span class="card-cta">Planifica tu evento masivo</span></div></button>
-        <button class="type" type="button" data-type="Fiesta" data-cursor=""><img src="assets/img/delicia-tropical.webp" alt="" loading="lazy"><div><h3>Fiestas</h3><p>Fiestas de fin de año, cumpleaños y celebraciones privadas, con estaciones que se vuelven parte del ambiente.</p><span class="card-cta">Planifica tu fiesta</span></div></button>
+        <button class="type" type="button" data-type="Fiesta" data-cursor=""><img src="assets/img/delicia-tropical-800.webp" alt="" loading="lazy" decoding="async"><div><h3>Fiestas</h3><p>Fiestas de fin de año, cumpleaños y celebraciones privadas, con estaciones que se vuelven parte del ambiente.</p><span class="card-cta">Planifica tu fiesta</span></div></button>
       </div>
     </div>
   </section>
@@ -480,32 +515,10 @@ form{display:block}
   <div class="slats" style="--h:18px" aria-hidden="true"></div>
   <div class="marquee" aria-hidden="true">
     <div class="marquee-row" id="marquee">
-      <span>Rueda de parmesano</span><span>Sushi al momento</span><span>Churros rellenos</span><span>Coco de agua</span><span>Costillas BBQ</span><span>Focaccia con burrata</span><span>Fuentes de chocolate</span><span>Tacos al chipotle</span><span>Arte latte en vivo</span>
+      <span>Rueda de parmesano</span><span>Sushi al momento</span><span>Churros rellenos</span><span>Coco de agua</span><span>Costillas BBQ</span><span>Focaccia con burrata</span><span>Fuentes de chocolate</span><span>Tacos al chipotle</span><span>Latte art en vivo</span>
     </div>
   </div>
 
-  <section class="gallery" id="galeria" aria-labelledby="gal-t">
-    <div class="wrap">
-      <div class="gallery-head">
-        <div><p class="eyebrow">Así se vive</p><h2 id="gal-t">Un salón encendido</h2></div>
-        <p>Madera, luz cálida y verde natural en cada stand. Una sola línea visual que viste tu salón de punta a punta.</p>
-      </div>
-      <div class="cols">
-        <div class="col" data-speed="-6">
-          <figure class="ph"><img src="assets/img/salon.webp" alt="Pasillo de estaciones Frescore en un salón de eventos" loading="lazy"><figcaption>El pasillo de estaciones</figcaption></figure>
-          <figure class="ph wide"><img src="assets/img/aroma-y-cacao.webp" alt="Estación Aroma y Cacao con churros y fuentes de chocolate" loading="lazy"><figcaption>Aroma y Cacao</figcaption></figure>
-        </div>
-        <div class="col" data-speed="8">
-          <figure class="ph"><img src="assets/img/italy.webp" alt="Pasta servida desde la rueda de parmesano" loading="lazy"><figcaption>Pasta en la rueda de parmesano</figcaption></figure>
-          <figure class="ph"><img src="assets/img/sushi.webp" alt="Rolls de sushi cortados al momento" loading="lazy"><figcaption>Sushi enrollado al momento</figcaption></figure>
-        </div>
-        <div class="col" data-speed="-10">
-          <figure class="ph wide"><img src="assets/img/delicia-tropical.webp" alt="Estación Delicia Tropical con cocos de agua" loading="lazy"><figcaption>Delicia Tropical</figcaption></figure>
-          <figure class="ph"><img src="assets/img/invitados.webp" alt="Invitados recorriendo las estaciones" loading="lazy"><figcaption>Tus invitados, eligiendo</figcaption></figure>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <section class="proof" aria-labelledby="proof-t" hidden>
     <div class="wrap">
@@ -564,7 +577,7 @@ form{display:block}
         <p>Tres pasos y listo. Al final se abre WhatsApp con tu solicitud y te respondemos con una propuesta a la medida.</p>
         <div class="contact">
           <div><small>Teléfono y WhatsApp</small><a href="https://wa.me/18295466858" target="_blank" rel="noopener">829-546-6858</a></div>
-          <div><small>Correo</small><a href="mailto:novaliacateringrd@gmail.com">novaliacateringrd@gmail.com</a></div>
+          <div><small>Correo</small><a href="mailto:frescoregourmet@gmail.com">frescoregourmet@gmail.com</a></div>
         </div>
       </div>
       <form id="quote" novalidate>
@@ -575,7 +588,12 @@ form{display:block}
           <legend>Cuéntanos de tu evento</legend>
           <div class="grid2">
             <div class="fl fixed"><select id="f-type" name="tipo"><option>Evento corporativo</option><option>Evento institucional</option><option>Evento multitudinario</option><option>Fiesta</option><option>Otro</option></select><label for="f-type">Tipo de evento</label></div>
-            <div class="fl fixed"><input id="f-date" name="fecha" type="date"><label for="f-date">Fecha del evento</label></div>
+            <div class="full date-row"><span class="dlabel" id="f-date-l">Fecha del evento</span>
+              <div class="dsel" role="group" aria-labelledby="f-date-l">
+                <select id="f-day" name="dia" aria-label="Día"><option value="">Día</option></select>
+                <select id="f-month" name="mes" aria-label="Mes"><option value="">Mes</option></select>
+                <select id="f-year" name="anio" aria-label="Año"><option value="">Año</option></select>
+              </div></div>
             <div class="fl"><input id="f-guests" name="invitados" type="number" min="200" step="10" placeholder=" " required><label for="f-guests">Invitados (desde 200)</label></div>
             <div class="fl"><input id="f-place" name="lugar" placeholder=" "><label for="f-place">Lugar o ciudad</label></div>
           </div>
@@ -668,6 +686,8 @@ const STATIONS = [
    menu:[["Platos principales",["Pierna de cerdo horneada","Pollo con crema y hongos","Filete de res al Oporto","Jamón glaseado con melocotón"]],["Guarniciones",["Moro de guandules","Arroz con tocineta y plátano maduro","Arroz primaveral o navideño","Soufflé de maíz","Ensalada rusa","Ensalada verde","Pastelón de batata con marshmallow","Pasteles en hoja de pollo y res","Pastelitos","Telera"]]]}
 ];
 const IMG = "assets/img/";
+const BIG = new Set(["aroma-y-cacao.webp","bocados.webp","delicia-tropical.webp","dominicano.webp","frutas.webp","gourmet.webp","mexicana.webp","pizza.webp"]);
+const srcset = (f, sizes) => BIG.has(f) ? ` srcset="${IMG + f.replace(".webp", "-800.webp")} 800w, ${IMG + f} 1600w" sizes="${sizes}"` : "";
 const pad = n => String(n).padStart(2, "0");
 const $ = s => document.querySelector(s);
 
@@ -676,9 +696,8 @@ const track = $("#hs-track");
 STATIONS.forEach((s, i) => {
   const b = document.createElement("button");
   b.type = "button"; b.className = s.img ? "card" : "card is-sign"; b.dataset.i = i; b.dataset.cursor = "";
-  b.setAttribute("aria-label", `${s.name}: ver menú`);
   const media = s.img
-    ? `<div class="card-img"><img src="${IMG + s.img}" alt="" loading="lazy" style="object-position:${s.pos}"></div>`
+    ? `<div class="card-img"><img src="${IMG + s.img}"${srcset(s.img, "(max-width:880px) 90vw, 520px")} alt="" loading="lazy" decoding="async" style="object-position:${s.pos}"></div>`
     : `<div class="card-sign" aria-hidden="true"><strong>${s.name.toUpperCase()}</strong><em>${s.tag}</em><div class="slats"></div></div>`;
   b.innerHTML = `${media}<div class="card-txt"><small>${pad(i + 1)} / ${STATIONS.length}</small><h3>${s.name}</h3><p>${s.tag}</p><span class="card-cta">Ver menú</span></div>`;
   track.appendChild(b);
@@ -710,7 +729,7 @@ let current = -1, lastCard = null;
 function fillSheet(i) {
   const s = STATIONS[i];
   sMedia.innerHTML = s.img
-    ? `<img src="${IMG + s.img}" alt="Estación ${s.name} de Frescore Gourmet" style="object-position:${s.pos}">`
+    ? `<img src="${IMG + s.img}"${srcset(s.img, "(max-width:880px) 100vw, 45vw")} alt="Estación ${s.name} de Frescore Gourmet" style="object-position:${s.pos}">`
     : `<div class="card-sign" aria-hidden="true"><strong>${s.name.toUpperCase()}</strong><em>${s.tag}</em></div>`;
   const menu = s.menu.map(([h, items]) =>
     `<div class="sm"><h4>${h}</h4><ul class="${s.long ? "long" : ""}">${items.map(x => `<li>${x}</li>`).join("")}</ul></div>`).join("");
@@ -790,6 +809,11 @@ document.addEventListener("keydown", e => {
   }
 });
 
+document.addEventListener("click", e => {
+  const a = e.target.closest('a[href*="wa.me"]');
+  if (a) frescoreTrack("click_whatsapp", {origen: a.id || a.className || "enlace"});
+});
+
 /* ================= Cotización: carrito de estaciones ================= */
 function goTo(sel) {
   const t = typeof sel === "string" ? document.querySelector(sel) : sel;
@@ -826,6 +850,20 @@ document.querySelectorAll("[data-combo]").forEach(b => b.addEventListener("click
   b.closest(".combo").classList.add("used");
   b.textContent = "Agregada a tu cotización ✓";
 }));
+
+/* ================= Fecha en español ================= */
+const MESES = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+(() => {
+  const d = $("#f-day"), m = $("#f-month"), y = $("#f-year"), now = new Date();
+  for (let i = 1; i <= 31; i++) d.add(new Option(i, i));
+  MESES.forEach((n, i) => m.add(new Option(n[0].toUpperCase() + n.slice(1), i + 1)));
+  for (let i = 0; i < 3; i++) y.add(new Option(now.getFullYear() + i, now.getFullYear() + i));
+})();
+const fechaTxt = () => {
+  const d = $("#f-day").value, m = $("#f-month").value, y = $("#f-year").value;
+  if (!d || !m) return "";
+  return `${d} de ${MESES[m - 1]}${y ? " de " + y : ""}`;
+};
 
 /* ================= Formulario por pasos a WhatsApp ================= */
 const form = $("#quote"), err = $("#f-err");
@@ -865,13 +903,14 @@ form.addEventListener("submit", e => {
   const picked = [...chips.querySelectorAll("input:checked")].map(c => c.value);
   const text = ["Hola Frescore Gourmet, quiero planificar mi evento.",
     `Nombre: ${form.nombre.value.trim()}`, `Teléfono: ${form.telefono.value.trim()}`, `Evento: ${form.tipo.value}`,
-    form.fecha.value && `Fecha: ${form.fecha.value}`, `Invitados: ${parseInt(form.invitados.value, 10)}`,
+    fechaTxt() && `Fecha: ${fechaTxt()}`, `Invitados: ${parseInt(form.invitados.value, 10)}`,
     form.lugar.value.trim() && `Lugar: ${form.lugar.value.trim()}`,
     `Estaciones: ${picked.join(", ")}`,
     form.mensaje.value.trim() && `Detalles: ${form.mensaje.value.trim()}`].filter(Boolean).join("\n");
   const wa = $("#f-wa");
   wa.href = "https://wa.me/18295466858?text=" + encodeURIComponent(text);
   $("#f-done").hidden = false;
+  frescoreTrack("generate_lead", {estaciones: picked.length, invitados: parseInt(form.invitados.value, 10)});
   if (motionOK) gsap.from("#f-done", {y:20, opacity:0, duration:.6, ease:"power3.out"});
   wa.focus();
 });
@@ -890,7 +929,7 @@ if (!motionOK) return;
 gsap.registerPlugin(ScrollTrigger);
 
 /* Scroll suave sincronizado con ScrollTrigger */
-if (window.Lenis) {
+if (window.Lenis && matchMedia("(pointer:fine)").matches) {
   lenis = new Lenis({lerp:.09, smoothWheel:true});
   lenis.on("scroll", ScrollTrigger.update);
   gsap.ticker.add(t => lenis.raf(t * 1000));
@@ -903,27 +942,29 @@ if (window.Lenis) {
 
 /* Separar el titular en letras */
 document.querySelectorAll("#hero-title .l").forEach(l => {
-  l.setAttribute("aria-label", l.textContent);
   l.innerHTML = [...l.textContent].map(c => `<span class="ch" aria-hidden="true">${c === " " ? "&nbsp;" : c}</span>`).join("");
 });
 /* 1. Preloader: cuenta y las puertas se abren */
 const intro = gsap.timeline({defaults:{ease:"expo.inOut"}});
 const counter = {v:0};
-gsap.set(".hero-title .ch", {yPercent:110, opacity:0});
+
 gsap.set("#portal", {clipPath:"inset(40% 20% 40% 20% round 240px)", opacity:0});
-gsap.set(["#hero-eyebrow", "#manifesto", "#hero-actions", "#hero-note", "#nav"], {opacity:0, y:24});
+
+let seen = false;
+try { seen = sessionStorage.getItem("frescore-intro") === "1"; sessionStorage.setItem("frescore-intro", "1"); } catch (e) {}
+if (seen) gsap.set(loader, {display:"none"});
+else intro
+  .to(counter, {v:100, duration:.45, ease:"power2.inOut", onUpdate:() => $("#count").textContent = String(Math.round(counter.v)).padStart(3, "0")})
+  .to(".loader-mark", {opacity:0, y:-20, duration:.25, ease:"power2.in"})
+  .to(".door.top", {yPercent:-101, duration:.6}, "<.05")
+  .to(".door.bot", {yPercent:101, duration:.6}, "<");
 intro
-  .to(counter, {v:100, duration:1.3, ease:"power2.inOut", onUpdate:() => $("#count").textContent = String(Math.round(counter.v)).padStart(3, "0")})
-  .to(".loader-mark", {opacity:0, y:-20, duration:.5, ease:"power2.in"}, "-=.1")
-  .to(".door.top", {yPercent:-101, duration:1.1}, "<.2")
-  .to(".door.bot", {yPercent:101, duration:1.1}, "<")
-  .to("#portal", {clipPath:"inset(0% 0% 0% 0% round 0px)", opacity:1, duration:1.6, ease:"expo.inOut"}, "<.2")
-  .to(".hero-title .ch", {yPercent:0, opacity:1, duration:1.2, stagger:.025, ease:"expo.out"}, "<.1")
-  .to(["#hero-eyebrow", "#manifesto", "#hero-actions", "#hero-note", "#nav"], {opacity:1, y:0, duration:.9, stagger:.09, ease:"power3.out"}, "<.3")
+  .to("#portal", {clipPath:"inset(0% 0% 0% 0% round 0px)", opacity:1, duration:1.1, ease:"expo.inOut"}, seen ? 0 : "<.1")
+  .from(".hero-title .ch", {yPercent:60, duration:.9, stagger:.02, ease:"expo.out", immediateRender:false}, "<")
   .add(() => gsap.set("#portal", {clearProps:"clipPath"}))
   .add(() => loader.remove());
 /* Respaldo: si algo frena la intro, el sitio queda visible */
-setTimeout(() => { if (document.body.contains(loader)) { intro.progress(1); } }, 5000);
+setTimeout(() => { if (document.body.contains(loader)) { intro.progress(1); } }, 3000);
 
 /* 2. Hero: el disco se abre en portal y el titular se separa */
 const mm = gsap.matchMedia();
@@ -940,7 +981,7 @@ mm.add({desk:"(min-width:881px)", mob:"(max-width:880px)"}, ctx => {
     hsSection.classList.remove("native");
     const dist = () => track.scrollWidth - innerWidth;
     const hTween = gsap.to(track, {x:() => -dist(), ease:"none",
-      scrollTrigger:{trigger:hsSection, start:"top top", end:() => "+=" + dist(), scrub:1, pin:true, invalidateOnRefresh:true,
+      scrollTrigger:{trigger:hsSection, start:"top top", end:() => "+=" + dist() * .6, scrub:.8, pin:true, invalidateOnRefresh:true,
         onUpdate:self => {
           gsap.set("#hs-bar", {scaleX:Math.max(.09, self.progress)});
           $("#hs-now").textContent = pad(Math.min(STATIONS.length, 1 + Math.round(self.progress * (STATIONS.length - 1))));
@@ -992,15 +1033,6 @@ gsap.ticker.add(() => {
 ScrollTrigger.create({onUpdate:self => { boost = Math.max(-6, Math.min(6, self.getVelocity() / 300)); }});
 
 /* 6. Galería: columnas a distinta velocidad + revelado con cortina */
-document.querySelectorAll(".col").forEach(col => {
-  gsap.to(col, {yPercent:+col.dataset.speed, ease:"none",
-    scrollTrigger:{trigger:".cols", start:"top bottom", end:"bottom top", scrub:true}});
-});
-document.querySelectorAll(".ph").forEach(ph => {
-  gsap.from(ph, {clipPath:"inset(100% 0 0 0)", duration:1.4, ease:"expo.out", scrollTrigger:{trigger:ph, start:"top 92%"}});
-  gsap.fromTo(ph.querySelector("img"), {yPercent:-8}, {yPercent:8, ease:"none", scrollTrigger:{trigger:ph, start:"top bottom", end:"bottom top", scrub:true}});
-});
-
 /* 7. Proceso: la línea se dibuja y cada paso se enciende */
 gsap.fromTo("#steps-line", {scaleY:0}, {scaleY:1, ease:"none", scrollTrigger:{trigger:"#steps", start:"top 70%", end:"bottom 60%", scrub:true}});
 document.querySelectorAll("#steps li").forEach(li => {
